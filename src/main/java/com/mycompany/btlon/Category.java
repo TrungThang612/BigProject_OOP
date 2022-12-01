@@ -4,11 +4,34 @@
  */
 package com.mycompany.btlon;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author dangt
  */
 public class Category {
     private String nameCategory;
- 
+    private List<Product> prodList = new ArrayList<>();
+
+    public Category(String nameCategory) {
+        this.nameCategory = nameCategory;
+    }
+
+    public String getNameCategory() {
+        return nameCategory;
+    }
+
+    public void setNameCategory(String nameCategory) {
+        this.nameCategory = nameCategory;
+    }
+
+    public List<Product> getProdList() {
+        return prodList;
+    }
+
+    public void setProdList(List<Product> prodList) {
+        this.prodList = prodList;
+    }
 }
