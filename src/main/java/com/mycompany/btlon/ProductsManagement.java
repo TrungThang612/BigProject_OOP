@@ -6,13 +6,14 @@ package com.mycompany.btlon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
- *
  * @author loctp
  */
 public class ProductsManagement {
     private List<Product> productsList = new ArrayList<>();
+    private List<AddDiscount> addDiscountList = new ArrayList<>();
 
     /**
      * @return the productsList
@@ -27,13 +28,24 @@ public class ProductsManagement {
     public void setProductsList(List<Product> productsList) {
         this.productsList = productsList;
     }
-   public void addProd(Product sp){
-        this.getProductsList().add(sp);
+
+    public void addProd(Product sp) {
+        this.productsList.add(sp);
     }
-  public Product searchByName(String nameProd) {
+
+    public void addDiscount(AddDiscount addDiscount) {
+        this.addDiscountList.add(addDiscount);
+    }
+
+    public Product searchByName(String nameProd) {
         return this.productsList.stream().filter(Products -> Products.getNameProd().equals(nameProd)).findFirst().orElse(null);
     }
-        public void show(){
-    productsList.forEach(sp-> sp.show());
+
+    public void show() {
+        productsList.forEach(sp -> sp.show());
+    }
+
+    public List<Product> searchByPrice(double min, double max) {
+        return this.productsList.stream().filter(sp -> sp.getUnitPrice() >= min && sp.getUnitPrice() <= max).collect(Collectors.toList());
     }
 }

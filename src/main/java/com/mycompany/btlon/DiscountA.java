@@ -8,7 +8,7 @@ package com.mycompany.btlon;
  *
  * @author dangt
  */
-public class DiscountA extends Discounts {
+public class DiscountA extends Discount {
     private double percentDiscount ;
     public DiscountA(){   }
     public DiscountA(String idDiscount, String fromDate, String toDate, double percentDiscount) throws Exception{

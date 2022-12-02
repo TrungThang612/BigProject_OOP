@@ -9,17 +9,16 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
  * @author loctp
  */
 public class Product {
-    private static int dem=0;
-    private int idProd = ++dem;    
+    private static int dem = 0;
+    private int idProd = ++dem;
     private String nameProd;
     private double unitPrice;
     private Category danhMuc;
-private List<Discounts> discountList = new ArrayList<>();
-    
+    private List<Discount> discountList = new ArrayList<>();
+
 
     public Product(String nameProd, double unitPrice, Category danhMuc) {
         this.nameProd = nameProd;
@@ -29,7 +28,7 @@ private List<Discounts> discountList = new ArrayList<>();
 
     public Product() {
     }
-    
+
 
     /**
      * @return the idProd
@@ -90,38 +89,43 @@ private List<Discounts> discountList = new ArrayList<>();
     /**
      * @return the discountList
      */
-    public List<Discounts> getDiscountList() {
+    public List<Discount> getDiscountList() {
         return discountList;
     }
 
     /**
      * @param discountList the discountList to set
      */
-    public void setDiscountList(List<Discounts> discountList) {
+    public void setDiscountList(List<Discount> discountList) {
         this.discountList = discountList;
     }
-public void show(){
-    System.out.println("Ma san pham: " +this.getIdProd());
-    System.out.println("Ten san pham: " +this.getNameProd());
-    System.out.println("Gia san pham: " +this.getUnitPrice());
-    
-    
-}
-  public void input() {
-     Scanner sc = new Scanner(System.in);
-     
+
+    public void addDiscount(Discount discount) {
+        this.discountList.add(discount);
+    }
+
+    public void show() {
+        System.out.println("Ma san pham: " + this.getIdProd());
+        System.out.println("Ten san pham: " + this.getNameProd());
+        System.out.println("Gia san pham: " + this.getUnitPrice());
+
+
+    }
+
+    public void input() {
+        Scanner sc = new Scanner(System.in);
+
         System.out.print("Nhap ten san pham: ");
         nameProd = sc.nextLine();
         System.out.print("Nhap gia: ");
         unitPrice = sc.nextDouble();
 
-}
-  
-  	@Override
-	public String toString() {
-		return "Ma san pham: " + this.idProd + "\nTen san pham: " + this.nameProd + "\n Gia san pham: " + this.unitPrice  ;
-	}
+    }
 
-   
-  
+    @Override
+    public String toString() {
+        return "Mã sản phẩm: " + this.idProd + "\nTên sản phẩm " + this.nameProd + "\nGiá sản phẩm: " + this.unitPrice;
+    }
+
+
 }

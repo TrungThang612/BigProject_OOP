@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author dangt
  */
-public class DiscountB  extends Discounts {
+public class DiscountB  extends Discount {
    private List<Services> listSV = new ArrayList<>();
     
     public DiscountB(String idDiscount, String fromDate, String toDate, Services...sv) throws Exception{

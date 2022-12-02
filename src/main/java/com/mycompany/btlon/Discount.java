@@ -4,8 +4,6 @@ package com.mycompany.btlon;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -16,14 +14,14 @@ import java.util.logging.Logger;
  *
  * @author dangt
  */
-public class Discounts {
+public class Discount {
     private String idDiscount;
     private Date fromDate, toDate;
 
-    public Discounts() {
+    public Discount() {
     }
 
-    public Discounts(String idDiscount, String fromDate, String toDate) throws Exception {
+    public Discount(String idDiscount, String fromDate, String toDate) throws Exception {
         this.idDiscount = idDiscount;
         try {
             this.fromDate = new SimpleDateFormat("dd/MM/yyyy").parse(fromDate);
