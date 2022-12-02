@@ -15,21 +15,26 @@ import java.util.Date;
  * @author dangt
  */
 public class Discount {
-    private String idDiscount;
+    protected String idDiscount;
     private Date fromDate, toDate;
+
+    @Override
+    public String toString() {
+        return String.format("%s - %s - %s", this.idDiscount,this.fromDate, this.toDate);
+    }
 
     public Discount() {
     }
 
-    public Discount(String idDiscount, String fromDate, String toDate) throws Exception {
-        this.idDiscount = idDiscount;
+    public Discount( String fromDate, String toDate) throws Exception {
+
         try {
-            this.fromDate = new SimpleDateFormat("dd/MM/yyyy").parse(fromDate);
+            this.fromDate = Tool.f.parse(fromDate);
         } catch (ParseException ex) {
             throw new Exception ("Sai Dinh Dang Ngay Thang!!!");
         }
         try {
-            this.toDate = new SimpleDateFormat("dd/MM/yyyy").parse(toDate);
+            this.toDate =Tool.f.parse(toDate);
         } catch (ParseException ex) {
             throw new Exception ("Sai Dinh Dang Ngay Thang!!!");
         }

@@ -15,8 +15,14 @@ public class Category {
     private String nameCategory;
     private List<Product> prodList = new ArrayList<>();
 
+    public  Category(){}
     public Category(String nameCategory) {
         this.nameCategory = nameCategory;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(this.nameCategory);
     }
 
     public String getNameCategory() {

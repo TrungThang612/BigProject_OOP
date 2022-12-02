@@ -10,9 +10,21 @@ package com.mycompany.btlon;
  */
 public class DiscountA extends Discount {
     private double percentDiscount ;
+    private static int dem;
+
+    {
+        ++dem;
+        idDiscount = String.format("A%02d", dem);
+    }
+
+    @Override
+    public String toString() {
+        return String.format(super.toString() + "- %.1f", percentDiscount);
+    }
+
     public DiscountA(){   }
-    public DiscountA(String idDiscount, String fromDate, String toDate, double percentDiscount) throws Exception{
-        super(idDiscount, fromDate, toDate);
+    public DiscountA(String fromDate, String toDate, double percentDiscount) throws Exception{
+        super(fromDate, toDate);
         this.percentDiscount = percentDiscount;
     }
 
