@@ -3,7 +3,12 @@ package com.mycompany.btlon;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.temporal.Temporal;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -17,6 +22,13 @@ import java.util.Date;
 public class Discount {
     protected String idDiscount;
     private Date fromDate, toDate;
+
+public long isOutDate(){
+    Calendar today = new GregorianCalendar();
+return Duration.between( today.getTime().toInstant(),this.toDate.toInstant()).toDays();
+
+}
+
 
     @Override
     public String toString() {
