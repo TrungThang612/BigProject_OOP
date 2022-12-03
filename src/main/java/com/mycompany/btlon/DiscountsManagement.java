@@ -7,7 +7,6 @@ public class DiscountsManagement {
 
     private List<AddDiscount> dcList = new ArrayList<>();
 
-
     public List<AddDiscount> getDcList() {
         return dcList;
     }
