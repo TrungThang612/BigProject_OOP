@@ -17,21 +17,33 @@ public class StoreManagement {
     private List<Discount> discountList = new ArrayList<>();
 
 
+    public void showProduct(){
+        for (Product x: this.productsList){
+            x.show();
+        }
+    }
     public void addDiscount(Discount a, Product b) {
         this.getAddDiscountList().add(new AddDiscount(a, b));
         b.addDiscount(a);
     }
 
     public void removeDiscountOutDate (){
-        for (int i = 0; i < this.productsList.size(); i++) {
-            this.productsList.get(i).removeDiscountOutDate();
+        for (Product x: this.productsList){
+             x.removeDiscountOutDate();
         }
-        for (int i = 0; i < this.addDiscountList.size(); i++) {
-            if(this.addDiscountList.get(i).getDc().isOutDate()<0) this.addDiscountList.remove(this.addDiscountList.get(i));
+        for (AddDiscount x : this.addDiscountList){
+            if (x.getDc().isOutDate()) this.addDiscountList.remove(x);
         }
     }
 
     //method discount
+    public List<Discount> listDiscountCanUse(){
+        return this.discountList.stream().filter(Discount->Discount.isOutDate()== true).collect(Collectors.toList());
+    }
+    public List<Discount> listDiscountByBetweenDate (long num){
+        return this.discountList.stream().filter(Discount->Discount.betweenDate()==num).collect(Collectors.toList());
+    }
+
     public void addDiscount (Discount a){
         this.discountList.add(a);
     }
@@ -44,6 +56,9 @@ public class StoreManagement {
     }
 
     //mehod product
+    public Product searchProductbyID (int n){
+        return this.productsList.stream().filter(Product -> Product.getIdProd()==n).findFirst().orElse(null);
+    }
     public void addProd(Product sp) {
         this.getProductsList().add(sp);
     }

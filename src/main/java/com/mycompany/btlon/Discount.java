@@ -23,10 +23,17 @@ public class Discount {
     protected String idDiscount;
     private Date fromDate, toDate;
 
-public long isOutDate(){
+public long betweenDate(){
     Calendar today = new GregorianCalendar();
 return Duration.between( today.getTime().toInstant(),this.toDate.toInstant()).toDays();
 
+}
+
+public boolean isOutDate(){
+    if(this.betweenDate()>0){
+        return false;
+    }
+    return true;
 }
 
 

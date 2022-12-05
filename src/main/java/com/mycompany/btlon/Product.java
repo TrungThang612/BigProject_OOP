@@ -36,10 +36,9 @@ public class Product {
 
 
     public void removeDiscountOutDate(){
-        for (int i = 0; i < this.discountList.size(); i++) {
-            if (this.discountList.get(i).isOutDate()<0) this.discountList.remove(this.discountList.get(i));
+        for (Discount x: this.discountList){
+            if (x.isOutDate())  this.discountList.remove(x);
         }
-        System.out.println("Đã hoàn thành");
     }
 
     public void show() {
