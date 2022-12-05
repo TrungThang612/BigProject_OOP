@@ -87,8 +87,9 @@ public class BTL {
                             if (b == null){
                                 System.out.println("Không tìm thấy mã khuyến mãi!!!");
                             }
-                            else{
-                            sm.addDiscount(b, a);
+                            else {
+                                sm.addDiscount(b, a);
+                            }
                         }
 
 
