@@ -9,6 +9,9 @@ public class AddDiscount {
         this.prod = prod;
     }
 
+    public void hienThi(){
+        System.out.println(dc.getIdDiscount()+ " - " +prod.getNameProd());
+    }
     public Discount getDc() {
         return dc;
     }

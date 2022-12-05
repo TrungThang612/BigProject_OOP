@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 /**
  * @author loctp
  */
-public class ProductsManagement {
+public class StoreManagement {
     private List<Product> productsList = new ArrayList<>();
     private List<AddDiscount> addDiscountList = new ArrayList<>();
 
@@ -33,8 +33,13 @@ public class ProductsManagement {
         this.productsList.add(sp);
     }
 
-    public void addDiscount(AddDiscount addDiscount) {
-        this.addDiscountList.add(addDiscount);
+    public void addDiscount(Discount a, Product b) {
+        this.addDiscountList.add(new AddDiscount(a, b));
+        b.addDiscount(a);
+    }
+
+    public Discount searchByNameDis(String nameDis) {
+        return this.addDiscountList.stream().filter(AddDiscount -> AddDiscount.getDc().getIdDiscount().equals(nameDis)).findFirst().orElse(null).getDc();
     }
 
     public Product searchByName(String nameProd) {

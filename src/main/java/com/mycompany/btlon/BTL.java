@@ -4,10 +4,6 @@
  */
 package com.mycompany.btlon;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
-
 //import static jdk.vm.ci.aarch64.AArch64.sp;
 
 /**
@@ -16,11 +12,7 @@ import java.util.Scanner;
 public class BTL {
 
     public static void main(String[] args) {
-        ProductsManagement pm = new ProductsManagement();
-        CategoryManagement cm = new CategoryManagement();
-        int n;
-        double min, max;
-        Scanner sc = new Scanner(System.in);
+        StoreManagement sm = new StoreManagement();
         while (true) {
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
             System.out.println("\t \t1. Thêm sản phẩm vào danh sách ");
@@ -37,56 +29,72 @@ public class BTL {
             System.out.println("\t \t12. Thoát chương trình!!");
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
             System.out.println("Nhập lựa chọn của bạn -> ");
-            String choice = sc.nextLine();
+            String choice = Tool.sc.nextLine();
             switch (choice) {
                 case "1" -> {
                     System.out.print("Nhập số sản phẩm: ");
-                    n = Integer.parseInt(sc.nextLine());
+                    int n = Integer.parseInt(Tool.sc.nextLine());
                     for (int i = 0; i < n; i++) {
                         System.out.println("Nhập thông tin sản phẩm thứ" + (i + 1) + ":");
                         Product sp = new Product();
                         sp.input();
-                        pm.addProd(sp);
+                        sm.addProd(sp);
                     }
                 }
                 case "2" -> {
                     System.out.print("Nhập tên sản phẩm bạn muốn tìm: ");
-                    String nameProd = sc.nextLine();
+                    String nameProd = Tool.sc.nextLine();
 
-                    Product a = pm.searchByName(nameProd);
+                    Product a = sm.searchByName(nameProd);
 
                     if (a == null) {
-                        System.out.println("Không tìm thấy!");
+                        System.out.println("Không tìm thấy sản phẩm!");
                     } else {
-                        System.out.println(a.toString());
+                        System.out.println("Đã tìm thấy sản phẩm!");
+                        a.show();
                     }
 
                 }
                 case "3" -> {
                     System.out.print("Nhập khoảng giá sản phẩm bạn muốn tìm: ");
                     System.out.println("\nNhập mức giá tối thiểu: ");
-                    min = Double.parseDouble(sc.nextLine());
+                    double min = Double.parseDouble(Tool.sc.nextLine());
                     System.out.println("Nhập mức giá tối đa: ");
-                    max = Double.parseDouble(sc.nextLine());
-                    pm.searchByPrice(min, max).forEach(pmg -> pmg.show());
+                    double max = Double.parseDouble(Tool.sc.nextLine());
+                    sm.searchByPrice(min, max).forEach(pmg -> pmg.show());
+                    //Nhập khoảng giá
+                    //Lọc sản phẩm trong khoảng giá tạo Ds in ra màn hình
+
                 }
                 case "4" -> {
+                    System.out.println("Nhap ma khuyen mai: ");
+                    String km = Tool.sc.nextLine();
+
                     //Nhập khuyến mãi
                     // in ra các sp có km đó
                 }
                 case "5" -> {
-                    System.out.print("- Nhập tên sản phẩm cần thêm khuyến mãi: ");
+                        System.out.print("- Nhập tên sản phẩm cần thêm khuyến mãi: ");
+                        String nameProd = Tool.sc.nextLine();
+                        Product a = sm.searchByName(nameProd);
 
-                    String nameProd = sc.nextLine();
+                        if (a == null) {
+                            System.out.println("Không tìm thấy sản phẩm!!!");
+                        } else {
+                            System.out.print("- Nhập tên khuyến mai: ");
+                            String nameDis = Tool.sc.nextLine();
+                            Discount b = sm.searchByNameDis(nameDis);
+                            if (b == null){
+                                System.out.println("Không tìm thấy mã khuyến mãi!!!");
+                            }
+                            else{
+                            sm.addDiscount(b, a);
+                        }
 
-                    Product a = pm.searchByName(nameProd);
 
-                    if (a == null) {
-                        System.out.println("Không tìm thấy!");
-                    } else {
-                        System.out.print("- Nhập khuyến mãi bạn muốn thêm: ");
 
-                    }
+
+
 
                     // Tìm kiếm khuyến mãi (km)
                     // Kiểm tra có tìm được sản phẩm và khuyến mãi hay không
