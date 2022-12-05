@@ -36,6 +36,9 @@ public class StoreManagement {
         this.discountList.add(a);
     }
 
+    public List<AddDiscount> searchsByNameDis (String nameDis){
+        return this.addDiscountList.stream().filter(AddDiscount ->AddDiscount.getDc().getIdDiscount().equals(nameDis)).collect(Collectors.toList());
+    }
     public Discount searchByNameDis(String nameDis) {
         return this.getAddDiscountList().stream().filter(AddDiscount -> AddDiscount.getDc().getIdDiscount().equals(nameDis)).findFirst().orElse(null).getDc();
     }

@@ -26,6 +26,8 @@ public class BTL {
             System.out.println("\t \t9. Hiển thị thông tin sản phẩm chỉ định theo mã sản phẩm");
             System.out.println("\t \t10. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
             System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo khuyến mãi còn hiệu lực");
+            System.out.println("\t \t12. Them ma khuyen mai");
+            System.out.println("\t \t13. Hien danh sach khuyen mai");
             System.out.println("\t \t12. Thoát chương trình!!");
             //Tạo mã khuyến mai
             //Hien danh sach san pham
@@ -42,6 +44,7 @@ public class BTL {
                         a.input();
                         sm.addProd(a);
                     }
+                    break;
                 }
                 case "2" -> {
                     System.out.print("Nhập tên sản phẩm bạn muốn tìm: ");
@@ -55,7 +58,7 @@ public class BTL {
                         System.out.println("Đã tìm thấy sản phẩm!");
                         a.show();
                     }
-
+                    break;
                 }
                 case "3" -> {
                     System.out.print("Nhập khoảng giá sản phẩm bạn muốn tìm: ");
@@ -66,12 +69,14 @@ public class BTL {
                     sm.searchByPrice(min, max).forEach(pmg -> pmg.show());
                     //Nhập khoảng giá
                     //Lọc sản phẩm trong khoảng giá tạo Ds in ra màn hình
+                    break;
 
                 }
                 case "4" -> {
                     System.out.println("Nhập mã khuyến mãi: ");
                     String km = Tool.sc.nextLine();
-
+                    sm.searchsByNameDis(km).forEach(AddDiscount::show);
+                    break;
                     //Nhập khuyến mãi
                     // in ra các sp có km đó
                 }
@@ -93,12 +98,7 @@ public class BTL {
                                 sm.addDiscount(b, a);
                             }
                         }
-
-
-
-
-
-
+                        break;
                     // Tìm kiếm khuyến mãi (km)
                     // Kiểm tra có tìm được sản phẩm và khuyến mãi hay không
                     // Nếu có thêm khuyến mãi vào sản phẩm
@@ -121,20 +121,27 @@ public class BTL {
                 }
                 case "8" -> {
                     System.out.println("Nhap ten san pham can tim kiem: ");
-
+                    break;
                 }
                 case "9" -> {
-
+                    break;
                 }
                 case "10" -> {
-
+                    break;
                 }
                 case "11" -> {
 
+                    break;
                 }
-                case "12" -> {
+                case "12"->{
+
+                }
+                case "13" -> {
+
+                }
+                case "14" -> {
                     System.out.println("Thoát chương trình !!");
-                    return;
+                    break;
                 }
                 default -> System.out.println("Chức năng chưa có");
             }
