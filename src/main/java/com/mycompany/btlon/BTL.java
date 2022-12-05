@@ -27,18 +27,20 @@ public class BTL {
             System.out.println("\t \t10. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
             System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo khuyến mãi còn hiệu lực");
             System.out.println("\t \t12. Thoát chương trình!!");
+            //Tạo mã khuyến mai
+            //Hien danh sach san pham
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
-            System.out.println("Nhập lựa chọn của bạn -> ");
+            System.out.println("\tNhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
             switch (choice) {
                 case "1" -> {
                     System.out.print("Nhập số sản phẩm: ");
                     int n = Integer.parseInt(Tool.sc.nextLine());
                     for (int i = 0; i < n; i++) {
-                        System.out.println("Nhập thông tin sản phẩm thứ" + (i + 1) + ":");
-                        Product sp = new Product();
-                        sp.input();
-                        sm.addProd(sp);
+                        System.out.println("Nhập thông tin sản phẩm thứ " + (i + 1) + ":");
+                        Product a = new Product();
+                        a.input();
+                        sm.addProd(a);
                     }
                 }
                 case "2" -> {
@@ -67,7 +69,7 @@ public class BTL {
 
                 }
                 case "4" -> {
-                    System.out.println("Nhap ma khuyen mai: ");
+                    System.out.println("Nhập mã khuyến mãi: ");
                     String km = Tool.sc.nextLine();
 
                     //Nhập khuyến mãi
@@ -81,7 +83,7 @@ public class BTL {
                         if (a == null) {
                             System.out.println("Không tìm thấy sản phẩm!!!");
                         } else {
-                            System.out.print("- Nhập tên khuyến mai: ");
+                            System.out.print("- Nhập tên khuyến mãi: ");
                             String nameDis = Tool.sc.nextLine();
                             Discount b = sm.searchByNameDis(nameDis);
                             if (b == null){
@@ -106,12 +108,19 @@ public class BTL {
 //                    pm.addProd(sp);
                 }
                 case "6" -> {
-
+                    sm.removeDiscountOutDate();
                 }
                 case "7" -> {
-
+                    System.out.println("Nhap ngay ban can kiem tra: ");
+                    int num = Integer.parseInt(Tool.sc.nextLine());
+                    for (int i = 0; i < sm.getDiscountList().size(); i++) {
+                        if(sm.getDiscountList().get(i).isOutDate()==num){
+                            System.out.println(sm.getDiscountList().get(i));
+                        }
+                    }
                 }
                 case "8" -> {
+                    System.out.println("Nhap ten san pham can tim kiem: ");
 
                 }
                 case "9" -> {
@@ -124,10 +133,10 @@ public class BTL {
 
                 }
                 case "12" -> {
-                    System.out.println("Thoat chuong trinh");
+                    System.out.println("Thoát chương trình !!");
                     return;
                 }
-                default -> System.out.println("Chuc nang chua co");
+                default -> System.out.println("Chức năng chưa có");
             }
         }
     }

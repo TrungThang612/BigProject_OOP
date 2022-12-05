@@ -26,10 +26,21 @@ public class Product {
         this.setCategory(category);
     }
 
+    public Product(String nameProd, double unitPrice) {
+        this.setNameProd(nameProd);
+        this.setUnitPrice(unitPrice);
+    }
+
     public Product() {
     }
 
 
+    public void removeDiscountOutDate(){
+        for (int i = 0; i < this.discountList.size(); i++) {
+            if (this.discountList.get(i).isOutDate()<0) this.discountList.remove(this.discountList.get(i));
+        }
+        System.out.println("Đã hoàn thành");
+    }
 
     public void show() {
         System.out.println("Ma san pham: " + this.getIdProd());
@@ -43,12 +54,15 @@ public class Product {
         }
     }
 
+
     public void input() {
         System.out.print("Nhap ten san pham: ");
         setNameProd(Tool.sc.nextLine());
         System.out.print("Nhap gia: ");
-        setUnitPrice(Tool.sc.nextDouble());
+        setUnitPrice(Double.parseDouble(Tool.sc.nextLine()));
+        System.out.flush();
     }
+
 
     public void addDiscount (Discount... a){
         this.discountList.addAll(Arrays.asList(a));
