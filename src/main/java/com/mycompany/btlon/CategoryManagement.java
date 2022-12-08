@@ -26,7 +26,7 @@ public class CategoryManagement {
 
 
     public Category searchCategory(String nameCate) {
-        return this.cateList.stream().filter(g1 -> g1.getNameCategory().toLowerCase().equals(nameCate.toLowerCase())).findFirst().orElse(null);
+        return this.cateList.stream().filter(g1 -> g1.getNameCategory().equalsIgnoreCase(nameCate)).findFirst().orElse(null);
     }
 
     public void addCategory(String nameCate) {
@@ -35,6 +35,9 @@ public class CategoryManagement {
         else throw new InputMismatchException("Da co danh muc");
     }
 
+    public void addCategory(Category c){
+        this.cateList.add(c);
+    }
     public void showCateList (){
         if (this.cateList.stream().count() == 0){
             System.out.println("Danh sach trong");

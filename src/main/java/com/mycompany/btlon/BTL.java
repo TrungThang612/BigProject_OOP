@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class BTL {
 
     public static void main(String[] args) {
+        CategoryManagement cg = new CategoryManagement();
         StoreManagement sm = new StoreManagement();
         while (true) {
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
@@ -43,6 +44,14 @@ public class BTL {
                         System.out.println("Nhập thông tin sản phẩm thứ " + (i + 1) + ":");
                         Product a = new Product();
                         a.input();
+                        System.out.print("Nhập tên danh mục: ");
+                        String nameCate = Tool.sc.nextLine();
+                        Category cate = cg.searchCategory(nameCate);
+                        if (cate == null){
+                             cate = new Category(nameCate);
+                            cg.addCategory(cate);
+                        }
+                        a.setCategory(cate);
                         sm.addProd(a);
                     }
                 }

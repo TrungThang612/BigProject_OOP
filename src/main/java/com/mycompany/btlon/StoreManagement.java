@@ -52,7 +52,7 @@ public class StoreManagement {
         return this.addDiscountList.stream().filter(AddDiscount ->AddDiscount.getDc().getIdDiscount().equals(nameDis)).collect(Collectors.toList());
     }
     public Discount searchByNameDis(String nameDis) {
-        return this.getAddDiscountList().stream().filter(AddDiscount -> AddDiscount.getDc().getIdDiscount().equals(nameDis)).findFirst().orElse(null).getDc();
+        return this.discountList.stream().filter(AddDiscount -> AddDiscount.getIdDiscount().equals(nameDis)).findFirst().orElse(null);
     }
 
     //mehod product
