@@ -4,8 +4,7 @@
  */
 package com.mycompany.btlon;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -22,7 +21,7 @@ public class StoreManagement {
             x.show();
         }
     }
-    public void addDiscount(Discount a, Product b) {
+    public void addDiscountToProduct(Discount a, Product b) {
         this.getAddDiscountList().add(new AddDiscount(a, b));
         b.addDiscount(a);
     }
@@ -37,9 +36,44 @@ public class StoreManagement {
     }
 
     //method discount
-    public List<Discount> listDiscountCanUse(){
-        return this.discountList.stream().filter(Discount->Discount.isOutDate()== true).collect(Collectors.toList());
+    public List<Discount> filterDiscountA(){
+        List<Discount> kq = new ArrayList<>();
+        for (Discount dc: this.discountList){
+            if (dc instanceof DiscountA){
+                kq.add(dc);
+            }
+        }
+        return kq;
     }
+
+    public List<Discount> filterDiscountB(){
+        List<Discount> kq = new ArrayList<>();
+        for (Discount dc: this.discountList){
+            if (dc instanceof DiscountB){
+                kq.add(dc);
+            }
+        }
+        return kq;
+    }
+
+    public List<Discount> filterDiscountC(){
+        List<Discount> kq = new ArrayList<>();
+        for (Discount dc: this.discountList){
+            if (dc instanceof DiscountC){
+                kq.add(dc);
+            }
+        }
+        return kq;
+    }
+
+    public void showDiscountsList (){
+        this.discountList.forEach(g1->System.out.println(g1));
+    }
+
+    public void sortDiscountByDate(){
+        Collections.sort(this.discountList);
+    }
+
     public List<Discount> listDiscountByBetweenDate (long num){
         return this.discountList.stream().filter(Discount->Discount.betweenDate()==num).collect(Collectors.toList());
     }
@@ -64,10 +98,6 @@ public class StoreManagement {
     }
     public Product searchByName(String nameProd) {
         return this.getProductsList().stream().filter(Products -> Products.getNameProd().equals(nameProd)).findFirst().orElse(null);
-    }
-
-    public void show() {
-        getProductsList().forEach(sp -> sp.show());
     }
 
     public List<Product> searchByPrice(double min, double max) {

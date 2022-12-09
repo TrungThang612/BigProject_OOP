@@ -13,6 +13,10 @@ import java.util.List;
 public class Services {
     private String nameServices;
 
+    public Services(String nameServices){
+        this.nameServices=nameServices;
+    }
+
     /**
      * @return the nameServices
      */

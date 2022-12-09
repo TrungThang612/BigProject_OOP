@@ -4,6 +4,8 @@
  */
 package com.mycompany.btlon;
 
+import java.text.ParseException;
+
 /**
  *
  * @author dangt
@@ -15,6 +17,15 @@ public class DiscountA extends Discount {
     {
         ++dem;
         idDiscount = String.format("A%02d", dem);
+    }
+
+    @Override
+    public void input() throws ParseException {
+        double pc;
+        super.input();
+        System.out.println("Nhap phan tram giam gia: ");
+        pc = Double.parseDouble(Tool.sc.nextLine());
+        this.percentDiscount = pc;
     }
 
     @Override

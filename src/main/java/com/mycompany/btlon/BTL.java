@@ -6,6 +6,7 @@ package com.mycompany.btlon;
 
 //import static jdk.vm.ci.aarch64.AArch64.sp;
 
+import java.text.ParseException;
 import java.util.Arrays;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Arrays;
  */
 public class BTL {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
         CategoryManagement cg = new CategoryManagement();
         StoreManagement sm = new StoreManagement();
         while (true) {
@@ -94,14 +95,14 @@ public class BTL {
                         if (a == null) {
                             System.out.println("Không tìm thấy sản phẩm!!!");
                         } else {
-                            System.out.print("- Nhập tên khuyến mãi: ");
+                            System.out.print("- Nhập mã khuyến mãi: ");
                             String nameDis = Tool.sc.nextLine();
                             Discount b = sm.searchByNameDis(nameDis);
                             if (b == null){
                                 System.out.println("Không tìm thấy mã khuyến mãi!!!");
                             }
                             else {
-                                sm.addDiscount(b, a);
+                                sm.addDiscountToProduct(b, a);
                             }
                         }
                     // Tìm kiếm khuyến mãi (km)
@@ -129,30 +130,75 @@ public class BTL {
                         sm.searchProductbyID(idprod).show();
                 }
                 case "9" -> {
-//                    String dt, check;
-//
-//                    do {
-//                        for (DiscountType s : DiscountType.values()) {
-//                            System.out.println(s);
-//                        }
-//                        System.out.print("Nhap loai khuyen mai: ");
-//                        dt = Tool.sc.nextLine();
-//                        check = String.valueOf(Arrays.stream(DiscountType.values()).filter(DiscountType->DiscountType.toString().equals(dt)).findFirst().orElse(null));
-//                    }while(check== null);
-//                        for(Discount x: Discoun t)
+                    System.out.println("Nhap loai khuyen mai can tao: ");
+                    System.out.printf("1:A , 2:B , 3:C");
+                    int a;
+                    do{
+                        a = Integer.parseInt(Tool.sc.next());
+                        if (a>=1 && a<=3){
+                            System.out.println("Khong co loai khuyen mai!!!!");
+                        }
+                    }while (a<1 && a>3);
+                    Discount crDis;
+                    switch (a){
+                        case 1:
+                            sm.filterDiscountA().forEach(g -> System.out.println(g));
+                            break;
+                        case 2:
+                            sm.filterDiscountB().forEach(g -> System.out.println(g));
+                            break;
+                        case 3:
+                            sm.filterDiscountC().forEach(g -> System.out.println(g));
+                            break;
+                    }
                 }
                 case "10" -> {
-                    sm.listDiscountCanUse().forEach(x -> System.out.println(x));
+                    sm.sortDiscountByDate();
+                    sm.getDiscountList();
                 }
                 case "11" -> {
+                    System.out.println("Nhap loai khuyen mai can tao: ");
+                    System.out.printf("1:A , 2:B , 3:C");
+                    int a;
+                    do{
+                        a = Integer.parseInt(Tool.sc.next());
+                        if (a>=1 && a<=3){
+                            System.out.println("Khong co loai khuyen mai!!!!");
+                        }
+                    }while (a<1 && a>3);
+                    Discount crDis;
+                    switch (a){
+                        case 1:
+                            crDis = new DiscountA();
+                            crDis.input();
+                            sm.addDiscount(crDis);
 
+                            break;
+                        case 2:
+                            crDis = new DiscountB();
+                            crDis.input();
+                            sm.addDiscount(crDis);
+                            break;
+                        case 3:
+                            crDis = new DiscountC();
+                            System.out.print("Nhập tên danh mục: ");
+                            String nameCate = Tool.sc.nextLine();
+                            Category cate = cg.searchCategory(nameCate);
+                            if (cate == null){
+                                cate = new Category(nameCate);
+                                cg.addCategory(cate);
+                            }
+                            ((DiscountC) crDis).setCate(cate);
+                            crDis.input();
+                            sm.addDiscount(crDis);
+                            break;
+                    }
                 }
                 case "12"->{
                     sm.showProduct();
                 }
                 case "13" -> {
                     System.out.println("Thoát chương trình !!");
-                    break;
                 }
                 default -> System.out.println("Chức năng chưa có");
             }

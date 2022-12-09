@@ -2,11 +2,12 @@ package com.mycompany.btlon;
 
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.time.temporal.Temporal;
+
+
 import java.util.Calendar;
+
 import java.util.Date;
 import java.util.GregorianCalendar;
 
@@ -19,7 +20,7 @@ import java.util.GregorianCalendar;
  *
  * @author dangt
  */
-public class Discount {
+public abstract class Discount implements Comparable<Discount>{
     protected String idDiscount;
     private Date fromDate, toDate;
 
@@ -35,6 +36,16 @@ public boolean isOutDate(){
     }
     return true;
 }
+
+    public void input () throws ParseException {
+        String fromDate, toDate;
+        System.out.println("Nhap ngay bat dau: ");
+        fromDate = Tool.sc.nextLine();
+        System.out.println("Nhap ngay het han: ");
+        toDate = Tool.sc.nextLine();
+        this.toDate= Tool.f.parse(fromDate);
+        this.fromDate = Tool.f.parse(toDate);
+    }
 
 
     @Override
@@ -101,9 +112,13 @@ public boolean isOutDate(){
     public void setToDate(Date toDate) {
         this.toDate = toDate;
     }
-    
-   
-    
-    
-     
+
+    @Override
+    public int compareTo(Discount o) {
+        if (this.betweenDate()> o.betweenDate())
+            return 1;
+        else if (this.betweenDate()< o.betweenDate())
+            return -1;
+        else return 0;
+    }
 }
