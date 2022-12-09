@@ -172,7 +172,6 @@ public class BTL {
                             crDis = new DiscountA();
                             crDis.input();
                             sm.addDiscount(crDis);
-
                             break;
                         case 2:
                             crDis = new DiscountB();

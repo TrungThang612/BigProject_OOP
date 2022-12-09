@@ -22,8 +22,19 @@ public class StoreManagement {
         }
     }
     public void addDiscountToProduct(Discount a, Product b) {
-        this.getAddDiscountList().add(new AddDiscount(a, b));
-        b.addDiscount(a);
+        if (a instanceof  DiscountC){
+            if (((DiscountC) a).getCate() == b.getCategory()){
+                this.getAddDiscountList().add(new AddDiscount(a, b));
+                b.addDiscount(a);
+            }
+            else{
+                System.out.println("San pham khong cung danh muc voi khuyen mai!!!");
+            }
+        }else {
+            this.getAddDiscountList().add(new AddDiscount(a, b));
+            b.addDiscount(a);
+        }
+
     }
 
     public void removeDiscountOutDate (){
