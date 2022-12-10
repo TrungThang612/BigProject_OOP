@@ -161,8 +161,8 @@ public class BTL {
                     System.out.printf("1:A , 2:B , 3:C");
                     int a;
                     do{
-                        a = Integer.parseInt(Tool.sc.next());
-                        if (a>=1 && a<=3){
+                        a = Integer.parseInt(Tool.sc.nextLine());
+                        if (a<1 && a>3){
                             System.out.println("Khong co loai khuyen mai!!!!");
                         }
                     }while (a<1 && a>3);
