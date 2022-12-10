@@ -140,4 +140,8 @@ public class StoreManagement {
     public void setDiscountList(List<Discount> discountList) {
         this.discountList = discountList;
     }
+
+    public void showDiscounts(){
+        this.discountList.forEach( g -> System.out.println(g));
+    }
 }

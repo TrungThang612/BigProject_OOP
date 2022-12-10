@@ -28,7 +28,7 @@ public class DiscountB  extends Discount {
         super.input();
         System.out.println("Nhap so dich vu cua khuyen mai: ");
         n = Integer.parseInt(Tool.sc.next());
-        for (int i=0; i< n; i++){
+        for (int i=0; i<= n; i++){
             String namesv = Tool.sc.nextLine();
             this.listSV.add(new Services(namesv));
         }

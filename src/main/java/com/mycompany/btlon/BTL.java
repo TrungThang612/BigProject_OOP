@@ -35,7 +35,7 @@ public class BTL {
             //Tạo mã khuyến mai
             //Hien danh sach san pham
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
-            System.out.println("\tNhập lựa chọn của bạn: ");
+            System.out.print("\tNhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
             switch (choice) {
                 case "1" -> {
@@ -95,6 +95,7 @@ public class BTL {
                         if (a == null) {
                             System.out.println("Không tìm thấy sản phẩm!!!");
                         } else {
+                            sm.showDiscounts();
                             System.out.print("- Nhập mã khuyến mãi: ");
                             String nameDis = Tool.sc.nextLine();
                             Discount b = sm.searchByNameDis(nameDis);
@@ -108,10 +109,7 @@ public class BTL {
                     // Tìm kiếm khuyến mãi (km)
                     // Kiểm tra có tìm được sản phẩm và khuyến mãi hay không
                     // Nếu có thêm khuyến mãi vào sản phẩm
-                    // sp.addDiscount(km);
-//                    AddDiscount addDiscount = new AddDiscount(km, sp);
-//                    pm.addDiscount(addDiscount);
-//                    pm.addProd(sp);
+
                 }
                 case "6" -> {
                     sm.removeDiscountOutDate();
@@ -135,7 +133,7 @@ public class BTL {
                     int a;
                     do{
                         a = Integer.parseInt(Tool.sc.next());
-                        if (a>=1 && a<=3){
+                        if (a<1 && a>3){
                             System.out.println("Khong co loai khuyen mai!!!!");
                         }
                     }while (a<1 && a>3);

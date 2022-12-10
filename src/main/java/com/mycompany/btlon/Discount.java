@@ -50,7 +50,7 @@ public boolean isOutDate(){
 
     @Override
     public String toString() {
-        return String.format("%s - %s - %s", this.idDiscount,this.fromDate, this.toDate);
+        return String.format("%s - %s - %s", this.idDiscount,Tool.f.format(this.fromDate), Tool.f.format(this.toDate));
     }
 
     public Discount() {
