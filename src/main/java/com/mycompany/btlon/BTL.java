@@ -25,17 +25,17 @@ public class BTL {
             System.out.println("\t \t2. Tìm kiếm sản phẩm theo tên");
             System.out.println("\t \t3. Tìm kiếm sản phẩm theo khoảng giá");
             System.out.println("\t \t4. Tìm kiếm sản phẩm theo khuyến mãi");
-            System.out.println("\t \t5. Them ma khuyen mai");
+            System.out.println("\t \t5. Thêm mã khuyến mãi");
             System.out.println("\t \t6. Thêm khuyến mãi vào sản phẩm");
             System.out.println("\t \t7. Xóa các khuyến mãi hết hiệu lực khỏi sản phẩm");
             System.out.println("\t \t8. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
             System.out.println("\t \t9. Hiển thị thông tin sản phẩm chỉ định theo mã sản phẩm");
             System.out.println("\t \t10. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
             System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo khuyến mãi còn hiệu lực");
-            System.out.println("\t \t12. Hien danh sach san pham");
+            System.out.println("\t \t12. Hiển thị danh sách sản phẩm");
             System.out.println("\t \t13. Thoát chương trình!!");
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
-            System.out.print("\tNhập lựa chọn của bạn: ");
+            System.out.print("Nhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
             switch (choice) {
                 case "1" -> {
@@ -89,15 +89,15 @@ public class BTL {
                 }
                 case "5" -> {
                     int a,n;
-                    System.out.printf("Nhap so luong khuyen mai: ");
+                    System.out.printf("Nhập số lượng khuyến mãi: ");
                     n = Integer.parseInt(Tool.sc.nextLine());
                     for (int i = 1; i <=n ; i++) {
-                        System.out.printf("Nhap loai khuyen mai thu %d: ",i);
+                        System.out.printf("Nhập khuyến mãi thứ %d: ",i);
                         System.out.printf("1:A , 2:B , 3:C");
                         do{
                             a = Integer.parseInt(Tool.sc.nextLine());
                             if (a<1 && a>3){
-                                System.out.println("Khong co loai khuyen mai!!!!");
+                                System.out.println("Không có loại khuyến mãi này!!!!");
                             }
                         }while (a<1 && a>3);
                         Discount crDis;
@@ -158,26 +158,26 @@ public class BTL {
                     am.removeDiscountsOutDate();
                 }
                 case "8" -> {
-                    System.out.println("Nhap ngay ban can kiem tra: ");
+                    System.out.println("Nhập ngày bạn cần kiểm tra: ");
                     long num = Long.parseLong(Tool.sc.nextLine());
                     dm.listDiscountByBetweenDate(num).forEach(x-> System.out.println(x));
                 }
                 case "9" -> {
-                    System.out.println("Nhap ID san pham can tim kiem: ");
+                    System.out.println("Nhập ID sản phẩm cần tìm kiếm: ");
                     int idprod = Integer.parseInt(Tool.sc.nextLine());
                     if (pm.searchProductbyID(idprod)==null)
-                        System.out.println("Khong tim thay san pham");
+                        System.out.println("Không tìm thấy sản phẩm");
                     else
                         pm.searchProductbyID(idprod).show();
                 }
                 case "10" -> {
                     int a;
-                    System.out.println ("Nhap loai khuyen mai thu can loc: ");
+                    System.out.println ("Nhập loại khuyến mãi: ");
                     System.out.printf("1:A , 2:B , 3:C");
                     do{
-                        a = Integer.parseInt(Tool.sc.next());
+                        a = Integer.parseInt(Tool.sc.nextLine());
                         if (a<1 && a>3){
-                            System.out.println("Khong co loai khuyen mai!!!!");
+                            System.out.println("không có loại khuyến mãi này!!!!");
                         }
                     }while (a<1 && a>3);
                     Discount crDis;
