@@ -1,6 +1,7 @@
 package com.mycompany.btlon;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,6 +10,14 @@ public class AddDisountsMangement {
 
     public List<AddDiscount> searchsByNameDis(String km) {
         return this.addDiscountList.stream().filter(g1->g1.getDc().getIdDiscount().equals(km)).collect(Collectors.toList());
+    }
+
+    public void show (){
+       this.addDiscountList.forEach (a-> a.show() );
+    }
+    public void sortDiscountByDate(){
+        Collections.sort(this.addDiscountList);
+        Collections.reverse(this.addDiscountList);
     }
     public void addDiscountToProduct(Discount a, Product b) {
         if (a instanceof  DiscountC){

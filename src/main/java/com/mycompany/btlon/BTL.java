@@ -194,8 +194,8 @@ public class BTL {
                     }
                 }
                 case "11" -> {
-                    dm.sortDiscountByDate();
-                    dm.showDiscountsList();
+                    am.sortDiscountByDate();
+                    am.show();
                 }
                 case "12"->{
                     pm.showProduct();

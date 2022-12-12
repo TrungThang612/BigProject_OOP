@@ -20,9 +20,6 @@ public class DiscountMangement {
         this.discountList.forEach(g1->System.out.println(g1));
     }
 
-    public void sortDiscountByDate(){
-        Collections.sort(this.discountList);
-    }
 
     public List<Discount> listDiscountByBetweenDate (long num){
         return this.discountList.stream().filter(Discount->Discount.betweenDate()==num).collect(Collectors.toList());
@@ -51,7 +48,6 @@ public class DiscountMangement {
                 this.discountList.remove(a);
             }
         }
-
     }
 
 

@@ -1,6 +1,6 @@
 package com.mycompany.btlon;
 
-public class AddDiscount {
+public class AddDiscount implements Comparable<AddDiscount>{
     private Discount dc;
     private Product prod;
 
@@ -26,5 +26,14 @@ public class AddDiscount {
 
     public void setProd(Product prod) {
         this.prod = prod;
+    }
+
+    @Override
+    public int compareTo(AddDiscount o) {
+        if (this.getDc().betweenDate()> o.getDc().betweenDate())
+            return 1;
+        else if (this.getDc().betweenDate()> o.getDc().betweenDate())
+            return -1;
+        else return 0;
     }
 }
