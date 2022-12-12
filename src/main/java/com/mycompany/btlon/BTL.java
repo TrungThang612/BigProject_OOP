@@ -29,7 +29,7 @@ public class BTL {
             System.out.println("\t \t6. Thêm khuyến mãi vào sản phẩm");
             System.out.println("\t \t7. Xóa các khuyến mãi hết hiệu lực khỏi sản phẩm");
             System.out.println("\t \t8. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
-            System.out.println("\t \t9. Hiển thị thông tin sản phẩm chỉ định theo mã sản phẩm");
+            System.out.println("\t \t9. Hiển thị thông tin khuyến mãi của sản phẩm chỉ định theo mã sản phẩm");
             System.out.println("\t \t10. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
             System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo số lượng khuyến mãi còn hiệu lực");
             System.out.println("\t \t12. Hiển thị danh sách sản phẩm");
@@ -154,8 +154,8 @@ public class BTL {
 
                 }
                 case "7" -> {
-                    dm.removeDiscountsOutDate();
-                    am.removeDiscountsOutDate();
+                    pm.removeDiscountsByOutDate();
+                    System.out.println("Đã xóa khuyến mãi hết hạn của các sản phẩm!");
                 }
                 case "8" -> {
                     System.out.println("Nhập ngày bạn cần kiểm tra: ");

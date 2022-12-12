@@ -32,6 +32,12 @@ public class ProductsManagement {
     public List<Product> searchByPrice(double min, double max) {
         return this.getProductsList().stream().filter(sp -> sp.getUnitPrice() >= min && sp.getUnitPrice() <= max).collect(Collectors.toList());
     }
+    public void removeDiscountsByOutDate(){
+        for (Product a : this.productsList){
+            a.removeDiscountOutDate();
+
+        }
+    }
 
     public List<Product> getProductsList() {
         return productsList;
