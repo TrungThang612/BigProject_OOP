@@ -93,7 +93,7 @@ public class BTL {
                         System.out.printf("Nhap loai khuyen mai thu %d: ",i);
                         System.out.printf("1:A , 2:B , 3:C");
                         do{
-                            a = Integer.parseInt(Tool.sc.next());
+                            a = Integer.parseInt(Tool.sc.nextLine());
                             if (a<1 && a>3){
                                 System.out.println("Khong co loai khuyen mai!!!!");
                             }

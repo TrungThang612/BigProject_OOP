@@ -47,35 +47,10 @@ public class StoreManagement {
     }
 
     //method discount
-    public List<Discount> filterDiscountA(){
-        List<Discount> kq = new ArrayList<>();
-        for (Discount dc: this.discountList){
-            if (dc instanceof DiscountA){
-                kq.add(dc);
-            }
-        }
-        return kq;
-    }
-
-    public List<Discount> filterDiscountB(){
-        List<Discount> kq = new ArrayList<>();
-        for (Discount dc: this.discountList){
-            if (dc instanceof DiscountB){
-                kq.add(dc);
-            }
-        }
-        return kq;
-    }
-
-    public List<Discount> filterDiscountC(){
-        List<Discount> kq = new ArrayList<>();
-        for (Discount dc: this.discountList){
-            if (dc instanceof DiscountC){
-                kq.add(dc);
-            }
-        }
-        return kq;
-    }
+   public List<Discount> search(String type) throws ClassNotFoundException {
+        Class c = Class.forName(type);
+        return this.discountList.stream().filter(discount -> c.isInstance(discount)).collect(Collectors.toList());
+   }
 
     public void showDiscountsList (){
         this.discountList.forEach(g1->System.out.println(g1));
