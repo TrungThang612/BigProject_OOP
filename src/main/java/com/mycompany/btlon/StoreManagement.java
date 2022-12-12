@@ -16,11 +16,8 @@ public class StoreManagement {
     private List<Discount> discountList = new ArrayList<>();
 
 
-    public void showProduct(){
-        for (Product x: this.productsList){
-            x.show();
-        }
-    }
+
+
     public void addDiscountToProduct(Discount a, Product b) {
         if (a instanceof  DiscountC){
             if (((DiscountC) a).getCate() == b.getCategory()){
@@ -47,48 +44,11 @@ public class StoreManagement {
     }
 
     //method discount
-   public List<Discount> search(String type) throws ClassNotFoundException {
-        Class c = Class.forName(type);
-        return this.discountList.stream().filter(discount -> c.isInstance(discount)).collect(Collectors.toList());
-   }
 
-    public void showDiscountsList (){
-        this.discountList.forEach(g1->System.out.println(g1));
-    }
 
-    public void sortDiscountByDate(){
-        Collections.sort(this.discountList);
-    }
-
-    public List<Discount> listDiscountByBetweenDate (long num){
-        return this.discountList.stream().filter(Discount->Discount.betweenDate()==num).collect(Collectors.toList());
-    }
-
-    public void addDiscount (Discount a){
-        this.discountList.add(a);
-    }
-
-    public List<AddDiscount> searchsByNameDis (String nameDis){
-        return this.addDiscountList.stream().filter(AddDiscount ->AddDiscount.getDc().getIdDiscount().equals(nameDis)).collect(Collectors.toList());
-    }
-    public Discount searchByNameDis(String nameDis) {
-        return this.discountList.stream().filter(AddDiscount -> AddDiscount.getIdDiscount().equals(nameDis)).findFirst().orElse(null);
-    }
 
     //mehod product
-    public Product searchProductbyID (int n){
-        return this.productsList.stream().filter(Product -> Product.getIdProd()==n).findFirst().orElse(null);
-    }
-    public void addProd(Product sp) {
-        this.getProductsList().add(sp);
-    }
-    public Product searchByName(String nameProd) {
-        return this.getProductsList().stream().filter(Products -> Products.getNameProd().equals(nameProd)).findFirst().orElse(null);
-    }
 
-    public List<Product> searchByPrice(double min, double max) {
-        return this.getProductsList().stream().filter(sp -> sp.getUnitPrice() >= min && sp.getUnitPrice() <= max).collect(Collectors.toList());
-    }
 
 
 //get - set

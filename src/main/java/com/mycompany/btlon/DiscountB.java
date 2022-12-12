@@ -14,8 +14,10 @@ import java.util.List;
  * @author dangt
  */
 public class DiscountB  extends Discount {
-   private List<Services> listSV = new ArrayList<>();
-
+    private List<Services> listSV = new ArrayList<>();
+    {
+        idDiscount = String.format("B%04d", (int)(Math.random()*(99999-10000+1)+1000));
+    }
 
     @Override
     public String toString() {
