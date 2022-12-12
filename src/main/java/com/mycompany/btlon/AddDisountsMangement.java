@@ -15,9 +15,10 @@ public class AddDisountsMangement {
     public void show (){
        this.addDiscountList.forEach (a-> a.show() );
     }
-    public void sortDiscountByDate(){
-        Collections.sort(this.addDiscountList);
-        Collections.reverse(this.addDiscountList);
+
+    public List<AddDiscount> searchByType(String type) throws ClassNotFoundException {
+        Class c = Class.forName(type);
+        return this.addDiscountList.stream().filter(addDiscount -> c.isInstance(addDiscount.getDc())).collect(Collectors.toList());
     }
     public void addDiscountToProduct(Discount a, Product b) {
         if (a instanceof  DiscountC){

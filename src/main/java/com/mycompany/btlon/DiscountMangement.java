@@ -12,10 +12,7 @@ public class DiscountMangement {
         return this.discountList.stream().filter(Discount->Discount.getIdDiscount().equals(nameDis)).findFirst().orElse(null);
     }
     
-    public List<Discount> searchByType(String type) throws ClassNotFoundException {
-        Class c = Class.forName(type);
-        return this.discountList.stream().filter(discount -> c.isInstance(discount)).collect(Collectors.toList());
-    }
+
     public void showDiscountsList (){
         this.discountList.forEach(g1->System.out.println(g1));
     }
@@ -39,7 +36,7 @@ public class DiscountMangement {
 
 
     public void showDiscounts() {
-        this.discountList.forEach(g->System.out.print(g +" "));
+        this.discountList.forEach(g->System.out.println(g));
     }
 
     public void removeDiscountsOutDate (){

@@ -1,12 +1,17 @@
 package com.mycompany.btlon;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductsManagement {
     private List<Product> productsList = new ArrayList<>();
 
+
+    public void sortByDiscount(){
+        this.productsList.sort((p,q)-> p.compareProductByDis(q));
+    }
 
 
     public void showProduct(){

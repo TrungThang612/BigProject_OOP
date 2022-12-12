@@ -31,7 +31,7 @@ public class BTL {
             System.out.println("\t \t8. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
             System.out.println("\t \t9. Hiển thị thông tin sản phẩm chỉ định theo mã sản phẩm");
             System.out.println("\t \t10. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
-            System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo khuyến mãi còn hiệu lực");
+            System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo số lượng khuyến mãi còn hiệu lực");
             System.out.println("\t \t12. Hiển thị danh sách sản phẩm");
             System.out.println("\t \t13. Thoát chương trình!!");
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
@@ -180,22 +180,21 @@ public class BTL {
                             System.out.println("không có loại khuyến mãi này!!!!");
                         }
                     }while (a<1 && a>3);
-                    Discount crDis;
                     switch (a){
                         case 1:
-                            dm.searchByType("com.mycompany.btlon.DiscountA").forEach(g->System.out.print(g + " "));
+                            am.searchByType("com.mycompany.btlon.DiscountA").forEach(g->System.out.print(g + " "));
                             break;
                         case 2:
-                            dm.searchByType("com.mycompany.btlon.DiscountB").forEach(g->System.out.print(g + " "));
+                            am.searchByType("com.mycompany.btlon.DiscountB").forEach(g->System.out.print(g + " "));
                             break;
                         case 3:
-                            dm.searchByType("com.mycompany.btlon.DiscountC").forEach(g->System.out.print(g + " "));
+                            am.searchByType("com.mycompany.btlon.DiscountC").forEach(g->System.out.print(g + " "));
                             break;
                     }
                 }
                 case "11" -> {
-                    am.sortDiscountByDate();
-                    am.show();
+                    pm.sortByDiscount();
+                    pm.showProduct();
                 }
                 case "12"->{
                     pm.showProduct();
