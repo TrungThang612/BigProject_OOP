@@ -23,17 +23,15 @@ public class BTL {
             System.out.println("\t \t2. Tìm kiếm sản phẩm theo tên");
             System.out.println("\t \t3. Tìm kiếm sản phẩm theo khoảng giá");
             System.out.println("\t \t4. Tìm kiếm sản phẩm theo khuyến mãi");
-            System.out.println("\t \t5. Thêm khuyến mãi vào sản phẩm");
-            System.out.println("\t \t6. Xóa các khuyến mãi hết hiệu lực khỏi sản phẩm");
-            System.out.println("\t \t7. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
-            System.out.println("\t \t8. Hiển thị thông tin sản phẩm chỉ định theo mã sản phẩm");
-            System.out.println("\t \t9. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
-            System.out.println("\t \t10. Danh sách sản phẩm giảm dần theo khuyến mãi còn hiệu lực");
-            System.out.println("\t \t11. Them ma khuyen mai");
+            System.out.println("\t \t5. Them ma khuyen mai");
+            System.out.println("\t \t6. Thêm khuyến mãi vào sản phẩm");
+            System.out.println("\t \t7. Xóa các khuyến mãi hết hiệu lực khỏi sản phẩm");
+            System.out.println("\t \t8. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
+            System.out.println("\t \t9. Hiển thị thông tin sản phẩm chỉ định theo mã sản phẩm");
+            System.out.println("\t \t10. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
+            System.out.println("\t \t11. Danh sách sản phẩm giảm dần theo khuyến mãi còn hiệu lực");
             System.out.println("\t \t12. Hien danh sach san pham");
             System.out.println("\t \t13. Thoát chương trình!!");
-            //Tạo mã khuyến mai
-            //Hien danh sach san pham
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
             System.out.print("\tNhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
@@ -88,6 +86,48 @@ public class BTL {
                     // in ra các sp có km đó
                 }
                 case "5" -> {
+                    int a,n;
+                    System.out.printf("Nhap so luong khuyen mai: ");
+                    n = Integer.parseInt(Tool.sc.next());
+                    for (int i = 1; i <=n ; i++) {
+                        System.out.printf("Nhap loai khuyen mai thu %d: ",i);
+                        System.out.printf("1:A , 2:B , 3:C");
+                        do{
+                            a = Integer.parseInt(Tool.sc.next());
+                            if (a<1 && a>3){
+                                System.out.println("Khong co loai khuyen mai!!!!");
+                            }
+                        }while (a<1 && a>3);
+                        Discount crDis;
+                        switch (a){
+                            case 1:
+                                crDis = new DiscountA();
+                                crDis.input();
+                                sm.addDiscount(crDis);
+                                break;
+                            case 2:
+                                crDis = new DiscountB();
+                                crDis.input();
+                                sm.addDiscount(crDis);
+                                break;
+                            case 3:
+                                crDis = new DiscountC();
+                                System.out.print("Nhập tên danh mục: ");
+                                String nameCate = Tool.sc.nextLine();
+                                Category cate = cg.searchCategory(nameCate);
+                                if (cate == null){
+                                    cate = new Category(nameCate);
+                                    cg.addCategory(cate);
+                                }
+                                ((DiscountC) crDis).setCate(cate);
+                                crDis.input();
+                                sm.addDiscount(crDis);
+                                break;
+                    }
+
+                    }
+                }
+                case "6" -> {
                         System.out.print("- Nhập tên sản phẩm cần thêm khuyến mãi: ");
                         String nameProd = Tool.sc.nextLine();
                         Product a = sm.searchByName(nameProd);
@@ -111,15 +151,15 @@ public class BTL {
                     // Nếu có thêm khuyến mãi vào sản phẩm
 
                 }
-                case "6" -> {
+                case "7" -> {
                     sm.removeDiscountOutDate();
                 }
-                case "7" -> {
+                case "8" -> {
                     System.out.println("Nhap ngay ban can kiem tra: ");
                     long num = Long.parseLong(Tool.sc.nextLine());
                     sm.listDiscountByBetweenDate(num).forEach(x-> System.out.println(x));
                 }
-                case "8" -> {
+                case "9" -> {
                     System.out.println("Nhap ID san pham can tim kiem: ");
                     int idprod = Integer.parseInt(Tool.sc.nextLine());
                     if (sm.searchProductbyID(idprod)==null)
@@ -127,10 +167,10 @@ public class BTL {
                     else
                         sm.searchProductbyID(idprod).show();
                 }
-                case "9" -> {
-                    System.out.println("Nhap loai khuyen mai can tao: ");
-                    System.out.printf("1:A , 2:B , 3:C");
+                case "10" -> {
                     int a;
+                    System.out.println ("Nhap loai khuyen mai thu can loc: ");
+                    System.out.printf("1:A , 2:B , 3:C");
                     do{
                         a = Integer.parseInt(Tool.sc.next());
                         if (a<1 && a>3){
@@ -150,46 +190,9 @@ public class BTL {
                             break;
                     }
                 }
-                case "10" -> {
+                case "11" -> {
                     sm.sortDiscountByDate();
                     sm.getDiscountList();
-                }
-                case "11" -> {
-                    System.out.println("Nhap loai khuyen mai can tao: ");
-                    System.out.printf("1:A , 2:B , 3:C");
-                    int a;
-                    do{
-                        a = Integer.parseInt(Tool.sc.nextLine());
-                        if (a<1 && a>3){
-                            System.out.println("Khong co loai khuyen mai!!!!");
-                        }
-                    }while (a<1 && a>3);
-                    Discount crDis;
-                    switch (a){
-                        case 1:
-                            crDis = new DiscountA();
-                            crDis.input();
-                            sm.addDiscount(crDis);
-                            break;
-                        case 2:
-                            crDis = new DiscountB();
-                            crDis.input();
-                            sm.addDiscount(crDis);
-                            break;
-                        case 3:
-                            crDis = new DiscountC();
-                            System.out.print("Nhập tên danh mục: ");
-                            String nameCate = Tool.sc.nextLine();
-                            Category cate = cg.searchCategory(nameCate);
-                            if (cate == null){
-                                cate = new Category(nameCate);
-                                cg.addCategory(cate);
-                            }
-                            ((DiscountC) crDis).setCate(cate);
-                            crDis.input();
-                            sm.addDiscount(crDis);
-                            break;
-                    }
                 }
                 case "12"->{
                     sm.showProduct();
