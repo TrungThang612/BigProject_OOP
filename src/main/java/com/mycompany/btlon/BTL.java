@@ -88,7 +88,7 @@ public class BTL {
                 case "5" -> {
                     int a,n;
                     System.out.printf("Nhap so luong khuyen mai: ");
-                    n = Integer.parseInt(Tool.sc.next());
+                    n = Integer.parseInt(Tool.sc.nextLine());
                     for (int i = 1; i <=n ; i++) {
                         System.out.printf("Nhap loai khuyen mai thu %d: ",i);
                         System.out.printf("1:A , 2:B , 3:C");
@@ -167,29 +167,29 @@ public class BTL {
                     else
                         sm.searchProductbyID(idprod).show();
                 }
-                case "10" -> {
-                    int a;
-                    System.out.println ("Nhap loai khuyen mai thu can loc: ");
-                    System.out.printf("1:A , 2:B , 3:C");
-                    do{
-                        a = Integer.parseInt(Tool.sc.next());
-                        if (a<1 && a>3){
-                            System.out.println("Khong co loai khuyen mai!!!!");
-                        }
-                    }while (a<1 && a>3);
-                    Discount crDis;
-                    switch (a){
-                        case 1:
-                            sm.filterDiscountA().forEach(g -> System.out.println(g));
-                            break;
-                        case 2:
-                            sm.filterDiscountB().forEach(g -> System.out.println(g));
-                            break;
-                        case 3:
-                            sm.filterDiscountC().forEach(g -> System.out.println(g));
-                            break;
-                    }
-                }
+//                case "10" -> {
+//                    int a;
+//                    System.out.println ("Nhap loai khuyen mai thu can loc: ");
+//                    System.out.printf("1:A , 2:B , 3:C");
+//                    do{
+//                        a = Integer.parseInt(Tool.sc.next());
+//                        if (a<1 && a>3){
+//                            System.out.println("Khong co loai khuyen mai!!!!");
+//                        }
+//                    }while (a<1 && a>3);
+//                    Discount crDis;
+//                    switch (a){
+//                        case 1:
+//                            sm.filterDiscountA().forEach(g -> System.out.println(g));
+//                            break;
+//                        case 2:
+//                            sm.filterDiscountB().forEach(g -> System.out.println(g));
+//                            break;
+//                        case 3:
+//                            sm.filterDiscountC().forEach(g -> System.out.println(g));
+//                            break;
+//                    }
+//                }
                 case "11" -> {
                     sm.sortDiscountByDate();
                     sm.getDiscountList();
