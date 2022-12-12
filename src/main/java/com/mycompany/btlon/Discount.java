@@ -26,15 +26,18 @@ public abstract class Discount implements Comparable<Discount>{
 
 public long betweenDate(){
     Calendar today = new GregorianCalendar();
-return Duration.between( today.getTime().toInstant(),this.toDate.toInstant()).toDays();
-
+return Duration.between(today.getTime().toInstant(),this.toDate.toInstant()).toDays();
 }
 
 public boolean isOutDate(){
-    if(this.betweenDate()>0){
+    Date today = new Date();
+    today.getTime();
+    Tool.f.format(today);
+    if (this.getToDate().compareTo(today) < 0) {
+        return true;
+    } else {
         return false;
     }
-    return true;
 }
 
     public void input () throws ParseException {
