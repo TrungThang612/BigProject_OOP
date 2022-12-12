@@ -59,7 +59,7 @@ public class Product {
         setNameProd(Tool.sc.nextLine());
         System.out.print("Nhap gia: ");
         setUnitPrice(Double.parseDouble(Tool.sc.nextLine()));
-        System.out.flush();
+//        System.out.flush();
     }
 
 
