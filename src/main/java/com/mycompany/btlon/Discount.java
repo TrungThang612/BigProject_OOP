@@ -47,7 +47,7 @@ public boolean isOutDate(){
         System.out.println("Nhap ngay het han: ");
         toDate = Tool.sc.nextLine();
         this.toDate= Tool.f.parse(toDate);
-        this.fromDate = Tool.f.parse(Date);
+        this.fromDate = Tool.f.parse(fromDate);
     }
 
 
