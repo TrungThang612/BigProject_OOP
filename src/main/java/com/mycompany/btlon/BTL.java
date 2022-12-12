@@ -16,7 +16,6 @@ public class BTL {
 
     public static void main(String[] args) throws ParseException, ClassNotFoundException {
         CategoryManagement cg = new CategoryManagement();
-        StoreManagement sm = new StoreManagement();
         DiscountMangement dm = new DiscountMangement();
         ProductsManagement pm = new ProductsManagement();
         AddDisountsMangement am = new AddDisountsMangement();
@@ -138,7 +137,7 @@ public class BTL {
                         if (a == null) {
                             System.out.println("Không tìm thấy sản phẩm!!!");
                         } else {
-                            sm.showDiscounts();
+                            dm.showDiscounts();
                             System.out.print("- Nhập mã khuyến mãi: ");
                             String nameDis = Tool.sc.nextLine();
                             Discount b = dm.searchByNameDis(nameDis);
@@ -155,7 +154,8 @@ public class BTL {
 
                 }
                 case "7" -> {
-                    sm.removeDiscountOutDate();
+                    dm.removeDiscountsOutDate();
+                    am.removeDiscountsOutDate();
                 }
                 case "8" -> {
                     System.out.println("Nhap ngay ban can kiem tra: ");

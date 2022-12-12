@@ -35,4 +35,11 @@ public class AddDisountsMangement {
     }
 
 
+    public void removeDiscountsOutDate (){
+        for (AddDiscount a: this.addDiscountList){
+            if (a.getDc().isOutDate()){
+                this.addDiscountList.remove(a);
+            }
+        }
+    }
 }

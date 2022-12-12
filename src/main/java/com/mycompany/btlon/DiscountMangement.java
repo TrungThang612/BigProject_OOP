@@ -41,5 +41,18 @@ public class DiscountMangement {
     }
 
 
+    public void showDiscounts() {
+        this.discountList.forEach(g->System.out.print(g +" "));
+    }
+
+    public void removeDiscountsOutDate (){
+        for (Discount a: this.discountList){
+            if (a.isOutDate()){
+                this.discountList.remove(a);
+            }
+        }
+
+    }
+
 
 }
