@@ -61,7 +61,7 @@ public class Product {
     public void show() {
         System.out.println("Mã sản phẩm: " + this.getIdProd());
         System.out.println("Tên sản phẩm: " + this.getNameProd());
-        System.out.println("Giá sản phẩm: " + this.getUnitPrice());
+        System.out.println("Giá sản phẩm: " + Tool.currencyVN.format(this.getUnitPrice()) );
         System.out.println("Danh mục sản phẩm: " + this.getCategory());
         System.out.print("Mã khuyến mãi của sản phẩm: ");
         if (discountList.size() == 0) {

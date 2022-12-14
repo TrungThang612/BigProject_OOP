@@ -35,7 +35,6 @@ public class BTL {
             System.out.println("\t \t12. Danh sách sản phẩm giảm dần theo số lượng khuyến mãi còn hiệu lực");
             System.out.println("\t \t13. Hiển thị danh sách sản phẩm");
             System.out.println("\t \t14. Thoát chương trình!!");
-
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
             System.out.print("Nhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
@@ -222,8 +221,6 @@ public class BTL {
                 case "14" -> {
                     System.out.println("Thoát chương trình !!");
                 }
-
-
                 default -> System.out.println("Chức năng chưa có!");
             }
         }
