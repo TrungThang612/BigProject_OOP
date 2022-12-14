@@ -11,6 +11,7 @@ public class ProductsManagement {
 
     public void sortByDiscount(){
         this.productsList.sort((p,q)-> p.compareProductByDis(q));
+        Collections.reverse(this.productsList);
     }
 
 
