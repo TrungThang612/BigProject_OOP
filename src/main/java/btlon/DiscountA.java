@@ -23,7 +23,7 @@ public class DiscountA extends Discount {
     public void input() throws ParseException {
         double pc;
         super.input();
-        System.out.println("Nhap phan tram giam gia: ");
+        System.out.println("Nhập phần trăm giảm giá: ");
         pc = Double.parseDouble(Tool.sc.nextLine());
         this.percentDiscount = pc;
     }

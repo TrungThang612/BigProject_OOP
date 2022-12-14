@@ -63,7 +63,7 @@ public class BTL {
                     n = Integer.parseInt(Tool.sc.nextLine());
                     for (int i = 1; i <=n ; i++) {
                         System.out.printf("Nhập khuyến mãi thứ %d: ",i);
-                        System.out.printf("1:A , 2:B , 3:C");
+                        System.out.printf("1:A , 2:B , 3:C: ");
                         do{
                             a = Integer.parseInt(Tool.sc.nextLine());
                             if (a<1 && a>3){
@@ -126,7 +126,6 @@ public class BTL {
                 case "4" -> {
                     System.out.print("Nhập tên sản phẩm bạn muốn tìm: ");
                     String nameProd = Tool.sc.nextLine();
-
                     Product a = pm.searchByName(nameProd);
 
                     if (a == null) {
@@ -159,7 +158,7 @@ public class BTL {
                     System.out.println("Đã xóa khuyến mãi hết hạn của các sản phẩm!");
                 }
                 case "8" -> {
-                    System.out.println("Nhập ngày bạn cần kiểm tra: ");
+                    System.out.print("Nhập ngày bạn cần kiểm tra: ");
                     long num = Long.parseLong(Tool.sc.nextLine());
                     dm.listDiscountByBetweenDate(num).forEach(x-> System.out.println(x));
                 }
@@ -192,7 +191,7 @@ public class BTL {
                 case "11" -> {
                     int a;
                     System.out.println ("Nhập loại khuyến mãi: ");
-                    System.out.printf("1:A , 2:B , 3:C");
+                    System.out.printf("1:A , 2:B , 3:C: ");
                     do{
                         a = Integer.parseInt(Tool.sc.nextLine());
                         if (a<1 && a>3){
