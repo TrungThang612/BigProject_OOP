@@ -1,4 +1,4 @@
-package com.mycompany.btlon;
+package btlon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,7 +32,7 @@ public class CategoryManagement {
     public void addCategory(String nameCate) {
         if (searchCategory(nameCate) == null)
             this.cateList.add(new Category(nameCate));
-        else throw new InputMismatchException("Da co danh muc");
+        else throw new InputMismatchException("Đã có danh mục!");
     }
 
     public void addCategory(Category c){
@@ -40,7 +40,7 @@ public class CategoryManagement {
     }
     public void showCateList (){
         if (this.cateList.stream().count() == 0){
-            System.out.println("Danh sach trong");
+            System.out.println("Danh sách trống!");
         }else{
             for (int i =0; i< this.cateList.size(); i++){
                 System.out.println(i + this.cateList.get(i).getNameCategory());

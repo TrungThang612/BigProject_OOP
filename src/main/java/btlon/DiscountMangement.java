@@ -1,4 +1,4 @@
-package com.mycompany.btlon;
+package btlon;
 
 import java.util.ArrayList;
 import java.util.Collections;

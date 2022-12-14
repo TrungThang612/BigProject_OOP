@@ -1,4 +1,4 @@
-package com.mycompany.btlon;
+package btlon;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +23,9 @@ public class ProductsManagement {
     public Product searchProductbyID (int n){
         return this.productsList.stream().filter(Product -> Product.getIdProd()==n).findFirst().orElse(null);
     }
+    public Product searchProductbyName (String n){
+        return this.productsList.stream().filter(Product -> Product.getNameProd().equals(n)).findFirst().orElse(null);
+    }
     public void addProd(Product sp) {
         this.getProductsList().add(sp);
     }
@@ -36,7 +39,6 @@ public class ProductsManagement {
     public void removeDiscountsByOutDate(){
         for (Product a : this.productsList){
             a.removeDiscountOutDate();
-
         }
     }
 

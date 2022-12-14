@@ -1,4 +1,4 @@
-package com.mycompany.btlon;
+package btlon;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +27,7 @@ public class AddDisountsMangement {
                 b.addDiscount(a);
             }
             else{
-                System.out.println("San pham khong cung danh muc voi khuyen mai!!!");
+                System.out.println("Sản phẩm không cùng danh mục với khuyến mãi!!!");
             }
         }else {
             this.getAddDiscountList().add(new AddDiscount(a, b));

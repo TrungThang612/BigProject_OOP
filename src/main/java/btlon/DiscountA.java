@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.btlon;
+package btlon;
 
 import java.text.ParseException;
 
@@ -30,7 +30,7 @@ public class DiscountA extends Discount {
 
     @Override
     public String toString() {
-        return String.format(super.toString() + "- %.1f", percentDiscount);
+        return String.format(super.toString() + "- %.1f \n", percentDiscount);
     }
 
     public DiscountA(){   }

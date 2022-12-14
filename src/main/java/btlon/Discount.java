@@ -1,4 +1,4 @@
-package com.mycompany.btlon;
+package btlon;
 
 
 import java.text.ParseException;
@@ -42,9 +42,9 @@ public boolean isOutDate(){
 
     public void input () throws ParseException {
         String fromDate, toDate;
-        System.out.println("Nhap ngay bat dau: ");
+        System.out.println("Nhập ngày bắt dầu: ");
         fromDate = Tool.sc.nextLine();
-        System.out.println("Nhap ngay het han: ");
+        System.out.println("Nhập ngày hết hạn: ");
         toDate = Tool.sc.nextLine();
         this.toDate= Tool.f.parse(toDate);
         this.fromDate = Tool.f.parse(fromDate);
@@ -64,12 +64,12 @@ public boolean isOutDate(){
         try {
             this.fromDate = Tool.f.parse(fromDate);
         } catch (ParseException ex) {
-            throw new Exception ("Sai Dinh Dang Ngay Thang!!!");
+            throw new Exception ("Sai định dạng ngày tháng!!!");
         }
         try {
             this.toDate =Tool.f.parse(toDate);
         } catch (ParseException ex) {
-            throw new Exception ("Sai Dinh Dang Ngay Thang!!!");
+            throw new Exception ("Sai định dạng ngày tháng!!!");
         }
     }
 

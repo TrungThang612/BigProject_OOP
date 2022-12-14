@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.btlon;
+package btlon;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -28,8 +28,9 @@ public class DiscountB  extends Discount {
     public void input() throws ParseException {
         int n;
         super.input();
-        System.out.println("Nhap so dich vu cua khuyen mai: ");
+        System.out.println("Nhập số dịch vụ của khuyến mãi: ");
         n = Integer.parseInt(Tool.sc.next());
+        System.out.println("Nhập tên dịch vụ");
         for (int i=0; i<= n; i++){
             String namesv = Tool.sc.nextLine();
             this.listSV.add(new Services(namesv));

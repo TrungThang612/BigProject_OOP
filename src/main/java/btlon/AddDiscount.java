@@ -1,4 +1,4 @@
-package com.mycompany.btlon;
+package btlon;
 
 public class AddDiscount implements Comparable<AddDiscount>{
     private Discount dc;
@@ -12,6 +12,7 @@ public class AddDiscount implements Comparable<AddDiscount>{
     public void show(){
         System.out.println(dc.getIdDiscount()+ " - " +prod.getNameProd());
     }
+
     public Discount getDc() {
         return dc;
     }

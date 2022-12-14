@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.btlon;
+package btlon;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -59,22 +59,33 @@ public class Product {
     }
 
     public void show() {
-        System.out.println("Ma san pham: " + this.getIdProd());
-        System.out.println("Ten san pham: " + this.getNameProd());
-        System.out.println("Gia san pham: " + this.getUnitPrice());
-        System.out.println("Danh muc san pham: " + this.getCategory());
-        System.out.println("Ma khuyen mai cua san pham: ");
-        for (Discount i: getDiscountList()
-             ) {
-            System.out.print(i.toString()+"\t");
+        System.out.println("Mã sản phẩm: " + this.getIdProd());
+        System.out.println("Tên sản phẩm: " + this.getNameProd());
+        System.out.println("Giá sản phẩm: " + this.getUnitPrice());
+        System.out.println("Danh mục sản phẩm: " + this.getCategory());
+        System.out.print("Mã khuyến mãi của sản phẩm: ");
+        if (discountList.size() == 0) {
+            System.out.println("Không có khuyến mãi trong sản phẩm!");
+        } else {
+            System.out.println();
+            for (Discount i : getDiscountList()) {
+                System.out.print(i.toString() + "\n");
+            }
+        }
+    }
+    public void showDc(){
+        System.out.println("Tên sản phẩm: " + this.getNameProd());
+        System.out.println("Mã khuyến mãi của sản phẩm: ");
+        for (Discount i: getDiscountList()) {
+            System.out.print(i.toString()+ "\n") ;
         }
     }
 
 
     public void input() {
-        System.out.print("Nhap ten san pham: ");
+        System.out.print("Nhập tên sản phẩm: ");
         setNameProd(Tool.sc.nextLine());
-        System.out.print("Nhap gia: ");
+        System.out.print("Nhập giá: ");
         setUnitPrice(Double.parseDouble(Tool.sc.nextLine()));
     }
 

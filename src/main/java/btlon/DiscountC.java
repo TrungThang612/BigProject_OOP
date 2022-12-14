@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.btlon;
+package btlon;
 
 import java.text.ParseException;
 
@@ -26,14 +26,14 @@ public class DiscountC extends Discount{
     public void input() throws ParseException {
         double pc;
         super.input();
-        System.out.printf("Nhap phan tram giam gia: ");
+        System.out.printf("Nhập phần trăm giảm giá: ");
         pc = Double.parseDouble(Tool.sc.nextLine());
         this.setPercentDiscount(pc);
     }
 
     @Override
     public String toString() {
-        return String.format(super.toString() +"- %f", getPercentDiscount());
+        return String.format(super.toString() +"- %.1f", getPercentDiscount());
     }
 
     public DiscountC(){}
