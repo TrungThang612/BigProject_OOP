@@ -39,13 +39,6 @@ public class DiscountMangement {
         this.discountList.forEach(g->System.out.println(g));
     }
 
-    public void removeDiscountsOutDate (){
-        for (Discount a: this.discountList){
-            if (!(a.isOutDate()== true)){
-                this.discountList.remove(a);
-            }
-        }
-    }
 
 
 }
