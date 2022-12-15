@@ -33,7 +33,7 @@ public boolean isOutDate(){
     Date today = new Date();
     today.getTime();
     Tool.f.format(today);
-    if (this.getToDate().compareTo(today) < 0) {
+    if (this.betweenDate()<0) {
         return true;
     } else {
         return false;
