@@ -8,12 +8,8 @@ import java.util.stream.Collectors;
 public class AddDisountsMangement {
     private List<AddDiscount> addDiscountList = new ArrayList<>();
 
-    public List<AddDiscount> searchsByNameDis(String km) {
-        return this.addDiscountList.stream().filter(g1->g1.getDc().getIdDiscount().equals(km)).collect(Collectors.toList());
-    }
-
-    public void show (){
-       this.addDiscountList.forEach (a-> a.show() );
+    public List<AddDiscount> searchsByNameDis(String dc) {
+        return this.addDiscountList.stream().filter(g1->g1.getDc().getIdDiscount().equals(dc)).collect(Collectors.toList());
     }
 
     public List<AddDiscount> searchByType(String type) throws ClassNotFoundException {

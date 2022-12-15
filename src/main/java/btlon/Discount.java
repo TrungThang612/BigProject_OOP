@@ -42,12 +42,18 @@ public boolean isOutDate(){
 
     public void input () throws ParseException {
         String fromDate, toDate;
-        System.out.println("Nhập ngày bắt dầu: ");
-        fromDate = Tool.sc.nextLine();
-        System.out.println("Nhập ngày hết hạn: ");
-        toDate = Tool.sc.nextLine();
-        this.toDate= Tool.f.parse(toDate);
-        this.fromDate = Tool.f.parse(fromDate);
+        do{
+            System.out.println("Nhập ngày bắt dầu: ");
+            fromDate = Tool.sc.nextLine();
+            System.out.println("Nhập ngày hết hạn: ");
+            toDate = Tool.sc.nextLine();
+            if (Duration.between(Tool.f.parse(toDate).toInstant(),Tool.f.parse(fromDate).toInstant()).toDays()>0){
+                System.out.println("Ngay het han truoc ngay tao hoac trung ngay tao");
+            }else {
+                this.toDate= Tool.f.parse(toDate);
+                this.fromDate = Tool.f.parse(fromDate);
+            }
+        }while(Duration.between(Tool.f.parse(toDate).toInstant(),Tool.f.parse(fromDate).toInstant()).toDays()>0);
     }
 
 
