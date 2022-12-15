@@ -9,6 +9,8 @@ package btlon;
 import java.text.ParseException;
 import java.util.Arrays;
 
+import static java.lang.System.exit;
+
 /**
  * @author loctp
  */
@@ -219,6 +221,7 @@ public class BTL {
                 }
                 case "14" -> {
                     System.out.println("Thoát chương trình !!");
+                    exit(0);
                 }
                 default -> System.out.println("Chức năng chưa có!");
             }
