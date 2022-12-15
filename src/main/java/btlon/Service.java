@@ -4,16 +4,14 @@
  */
 package btlon;
 
-import java.util.List;
-
 /**
  *
  * @author dangt
  */
-public class Services {
+public class Service {
     private String nameServices;
 
-    public Services(String nameServices){
+    public Service(String nameServices){
         this.nameServices=nameServices;
     }
 

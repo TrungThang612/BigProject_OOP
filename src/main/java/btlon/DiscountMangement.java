@@ -11,12 +11,6 @@ public class DiscountMangement {
     public Discount searchByNameDis(String nameDis) {
         return this.discountList.stream().filter(Discount->Discount.getIdDiscount().equals(nameDis)).findFirst().orElse(null);
     }
-    
-
-    public void showDiscountsList (){
-        this.discountList.forEach(g1->System.out.println(g1));
-    }
-
 
     public List<Discount> listDiscountByBetweenDate (long num){
         return this.discountList.stream().filter(Discount->Discount.betweenDate()==num).collect(Collectors.toList());

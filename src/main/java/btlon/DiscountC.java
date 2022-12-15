@@ -12,14 +12,14 @@ import java.text.ParseException;
  */
 public class DiscountC extends Discount{
 
-    private static int dem;
+    private static int count;
     private double percentDiscount;
     private Category cate = new Category();
 
 
     {
-        ++dem;
-        this.idDiscount = String.format("C%04d",dem);
+        ++count;
+        this.idDiscount = String.format("C%04d",count);
     }
 
     @Override
