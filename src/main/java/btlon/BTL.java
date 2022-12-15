@@ -6,6 +6,7 @@ package btlon;
 
 //import static jdk.vm.ci.aarch64.AArch64.sp;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Arrays;
 
@@ -14,10 +15,10 @@ import java.util.Arrays;
  */
 public class BTL {
 
-    public static void main(String[] args) throws ParseException, ClassNotFoundException {
+    public static void main(String[] args) throws ParseException, ClassNotFoundException, FileNotFoundException {
         CategoryManagement cg = new CategoryManagement();
         DiscountMangement dm = new DiscountMangement();
-        ProductsManagement pm = new ProductsManagement();
+        ProductsManagement pm = new ProductsManagement(cg);
         AddDisountsMangement am = new AddDisountsMangement();
         while (true) {
             System.out.println("\t \t\t \t\t \t_______________ & _____________");

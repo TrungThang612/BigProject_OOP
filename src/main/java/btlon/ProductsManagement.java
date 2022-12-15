@@ -10,21 +10,25 @@ import java.util.stream.Collectors;
 public class ProductsManagement  {
     private List<Product> productsList = new ArrayList<>();
 
-//     File f = new File("src/main/resources/Product.txt");
-//     Scanner scanner = new Scanner(f);
+     File f = new File("src/main/resources/Product.txt");
+     Scanner scanner = new Scanner(f);
 
-    public ProductsManagement() throws FileNotFoundException {
+    public ProductsManagement(CategoryManagement cg) throws FileNotFoundException {
         File f = new File("src/main/resources/Product.txt");
         try (Scanner scanner = new Scanner(f)){
             while(scanner.hasNext()) {
                 String nameProd = scanner.nextLine();
-                String unitPrice = scanner.nextLine();
-                String category = scanner.nextLine();
-
+                Double unitPrice = Double.parseDouble(scanner.nextLine());
+                String nameCate = scanner.nextLine();
+                Category cate = cg.searchCategory(nameCate);
+                if (cate == null){
+                    cate = new Category(nameCate);
+                    cg.addCategory(cate);
+                }
+                this.addProd(new Product(nameProd, unitPrice, cate));
                if (scanner.hasNext())
                    scanner.nextLine();
-                System.out.printf("Tên sản phẩm: %s\nGiá sản phẩm: %.1f\nDanh mục: %s\n", nameProd,  unitPrice, category);
-                System.out.println("===========");
+
             }
         }
 

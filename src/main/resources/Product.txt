@@ -1,3 +1,7 @@
 kem
 3000
 food
+
+Sua
+10000
+food

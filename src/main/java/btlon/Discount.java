@@ -26,7 +26,7 @@ public abstract class Discount {
 
 public long betweenDate(){
     Calendar today = new GregorianCalendar();
-return Duration.between(today.getTime().toInstant(),this.toDate.toInstant()).toDays();
+return Duration.between(today.toInstant(),this.toDate.toInstant()).toDays();
 }
 
     public boolean isOutDate(){
