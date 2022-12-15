@@ -27,7 +27,7 @@ public class BTL {
             System.out.println("\t \t1. Thêm sản phẩm vào danh sách ");
             System.out.println("\t \t2. Thêm mã khuyến mãi");
             System.out.println("\t \t3. Thêm khuyến mãi vào sản phẩm");
-            System.out.println("\t \t4. Hiển thị danh sách sả3n phẩm");
+            System.out.println("\t \t4. Hiển thị danh sách sản phẩm");
             System.out.println("\t \t5. Hiển thị danh sách mã khuyến mãi");
             System.out.println("\t \t6. Tìm kiếm sản phẩm theo tên");
             System.out.println("\t \t7. Tìm kiếm sản phẩm theo khoảng giá");
@@ -162,6 +162,7 @@ public class BTL {
                 }
                 case "8" -> {
                     System.out.println("Danh sách các khuyến mãi: ");
+                    dm.showDiscounts();
                     System.out.println("Nhập mã khuyến mãi: ");
                     String km = Tool.sc.nextLine();
                     am.searchsByNameDis(km).forEach(AddDiscount::show);

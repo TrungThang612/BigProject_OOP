@@ -45,7 +45,7 @@ return Duration.between(today.toInstant(),this.toDate.toInstant()).toDays();
             System.out.println("Nhập ngày hết hạn: ");
             toDate = Tool.sc.nextLine();
             if (Duration.between(Tool.f.parse(toDate).toInstant(),Tool.f.parse(fromDate).toInstant()).toDays()>0){
-                System.out.println("Ngày hết hạn không được trước ngày tạo hoặc trùng ngày tạo");
+                System.out.println("Ngày hết hạn không được nhỏ hơn ngày tạo");
             }else {
                 this.toDate= Tool.f.parse(toDate);
                 this.fromDate = Tool.f.parse(fromDate);

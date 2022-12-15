@@ -9,11 +9,3 @@ Food
 Áo
 200000
 Cloth
-
-Váy
-3000000
-Cloth
-
-Rau
-15000
-Food

@@ -30,7 +30,7 @@ public class DiscountA extends Discount {
 
     @Override
     public String toString() {
-        return String.format(super.toString() + "- %.1f \n", percentDiscount);
+        return String.format(super.toString() + "- %.1f", percentDiscount);
     }
 
     public DiscountA(){   }
