@@ -4,15 +4,29 @@
  */
 package btlon;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * @author loctp
  */
 public class Product {
+
+    public String getFileLine() {
+        return nameProd + "-" + unitPrice + "-" + category + "\n";
+
+    }
+
+
+
     private static int dem = 0;
     private int idProd = ++dem;
     private String nameProd;
@@ -75,14 +89,13 @@ public class Product {
             }
         }
     }
-    public void showDc(){
+    public void showDc() {
         System.out.println("Tên sản phẩm: " + this.getNameProd());
         System.out.println("Mã khuyến mãi của sản phẩm: ");
-        for (Discount i: getDiscountList()) {
-            System.out.print(i.toString()+ "\n") ;
+        for (Discount i : getDiscountList()) {
+            System.out.print(i.toString() + "\n");
         }
     }
-
 
     public void input() {
         System.out.print("Nhập tên sản phẩm: ");

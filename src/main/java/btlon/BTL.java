@@ -6,6 +6,7 @@ package btlon;
 
 //import static jdk.vm.ci.aarch64.AArch64.sp;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Arrays;
 
@@ -16,7 +17,7 @@ import static java.lang.System.exit;
  */
 public class BTL {
 
-    public static void main(String[] args) throws ParseException, ClassNotFoundException {
+    public static void main(String[] args) throws ParseException, ClassNotFoundException, FileNotFoundException{
         CategoryManagement cg = new CategoryManagement();
         DiscountMangement dm = new DiscountMangement();
         ProductsManagement pm = new ProductsManagement();
@@ -224,6 +225,7 @@ public class BTL {
                 case "14" -> {
                     System.out.println("Thoát chương trình !!");
                     exit(0);
+
                 }
                 default -> System.out.println("Chức năng chưa có!");
             }

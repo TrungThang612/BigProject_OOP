@@ -29,16 +29,13 @@ public long betweenDate(){
 return Duration.between(today.getTime().toInstant(),this.toDate.toInstant()).toDays();
 }
 
-public boolean isOutDate(){
-    Date today = new Date();
-    today.getTime();
-    Tool.f.format(today);
-    if (this.getToDate().compareTo(today) < 0) {
-        return true;
-    } else {
-        return false;
+    public boolean isOutDate(){
+        if (this.betweenDate()<0) {
+            return true;
+        } else {
+            return false;
+        }
     }
-}
 
     public void input () throws ParseException {
         String fromDate, toDate;
@@ -48,7 +45,7 @@ public boolean isOutDate(){
             System.out.println("Nhập ngày hết hạn: ");
             toDate = Tool.sc.nextLine();
             if (Duration.between(Tool.f.parse(toDate).toInstant(),Tool.f.parse(fromDate).toInstant()).toDays()>0){
-                System.out.println("Ngay het han truoc ngay tao hoac trung ngay tao");
+                System.out.println("Ngày hết hạn không được trước ngày tạo hoặc trùng ngày tạo");
             }else {
                 this.toDate= Tool.f.parse(toDate);
                 this.fromDate = Tool.f.parse(fromDate);

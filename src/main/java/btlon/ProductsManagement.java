@@ -1,13 +1,35 @@
 package btlon;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
-public class ProductsManagement {
+public class ProductsManagement  {
     private List<Product> productsList = new ArrayList<>();
+
+//     File f = new File("src/main/resources/Product.txt");
+//     Scanner scanner = new Scanner(f);
+
+    public ProductsManagement() throws FileNotFoundException {
+        File f = new File("src/main/resources/Product.txt");
+        try (Scanner scanner = new Scanner(f)){
+            while(scanner.hasNext()) {
+                String nameProd = scanner.nextLine();
+                String unitPrice = scanner.nextLine();
+                String category = scanner.nextLine();
+
+               if (scanner.hasNext())
+                   scanner.nextLine();
+                System.out.printf("Tên sản phẩm: %s\nGiá sản phẩm: %.1f\nDanh mục: %s\n", nameProd,  unitPrice, category);
+                System.out.println("===========");
+            }
+        }
+
+
+    }
 
 
     public void sortByDiscount(){
