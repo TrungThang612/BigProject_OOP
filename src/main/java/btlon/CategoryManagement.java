@@ -29,22 +29,9 @@ public class CategoryManagement {
         return this.cateList.stream().filter(g1 -> g1.getNameCategory().equalsIgnoreCase(nameCate)).findFirst().orElse(null);
     }
 
-    public void addCategory(String nameCate) {
-        if (searchCategory(nameCate) == null)
-            this.cateList.add(new Category(nameCate));
-        else throw new InputMismatchException("Đã có danh mục!");
-    }
 
     public void addCategory(Category c){
         this.cateList.add(c);
     }
-    public void showCateList (){
-        if (this.cateList.stream().count() == 0){
-            System.out.println("Danh sách trống!");
-        }else{
-            for (int i =0; i< this.cateList.size(); i++){
-                System.out.println(i + this.cateList.get(i).getNameCategory());
-            }
-        }
-    }
+
 }

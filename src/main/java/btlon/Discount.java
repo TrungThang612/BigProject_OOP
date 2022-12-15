@@ -20,7 +20,7 @@ import java.util.GregorianCalendar;
  *
  * @author dangt
  */
-public abstract class Discount implements Comparable<Discount>{
+public abstract class Discount {
     protected String idDiscount;
     private Date fromDate, toDate;
 
@@ -116,13 +116,5 @@ public boolean isOutDate(){
         this.toDate = toDate;
     }
 
-    @Override
-    public int compareTo(Discount o) {
-        if (this.betweenDate()> o.betweenDate())
-            return 1;
-        else if (this.betweenDate()< o.betweenDate())
-            return -1;
-        else return 0;
-    }
 
 }
