@@ -28,13 +28,9 @@ public class ProductsManagement  {
                 this.addProd(new Product(nameProd, unitPrice, cate));
                if (scanner.hasNext())
                    scanner.nextLine();
-
             }
         }
-
-
     }
-
 
     public void sortByDiscount(){
         this.productsList.sort((p,q)-> p.compareProductByDis(q));

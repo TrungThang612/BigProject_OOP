@@ -40,7 +40,6 @@ public class AddDisountsMangement {
         this.addDiscountList = addDiscountList;
     }
 
-
     public void removeDiscountsOutDate (){
         for (int i=0; i< this.addDiscountList.size(); i++){
             if (this.addDiscountList.get(i).getDc().isOutDate()){

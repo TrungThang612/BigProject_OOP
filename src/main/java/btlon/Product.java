@@ -19,21 +19,12 @@ import java.util.logging.Logger;
  * @author loctp
  */
 public class Product {
-
-    public String getFileLine() {
-        return nameProd + "-" + unitPrice + "-" + category + "\n";
-
-    }
-
-
-
     private static int dem = 0;
     private int idProd = ++dem;
     private String nameProd;
     private double unitPrice;
     private Category category;
     private List<Discount> discountList = new ArrayList<>();
-
 
     public Product(String nameProd, double unitPrice, Category category) {
         this.setNameProd(nameProd);

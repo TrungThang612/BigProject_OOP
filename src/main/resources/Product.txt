@@ -1,7 +1,19 @@
-kem
-3000
-food
+Kem
+7000
+Food
 
-Sua
+Sữa
 10000
-food
+Food
+
+Áo
+200000
+Cloth
+
+Váy
+3000000
+Cloth
+
+Rau
+15000
+Food

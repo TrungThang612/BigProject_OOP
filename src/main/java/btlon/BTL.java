@@ -10,6 +10,8 @@ import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.util.Arrays;
 
+import static java.lang.System.exit;
+
 /**
  * @author loctp
  */
@@ -25,22 +27,22 @@ public class BTL {
             System.out.println("\t \t1. Thêm sản phẩm vào danh sách ");
             System.out.println("\t \t2. Thêm mã khuyến mãi");
             System.out.println("\t \t3. Thêm khuyến mãi vào sản phẩm");
-            System.out.println("\t \t4. Tìm kiếm sản phẩm theo tên");
-            System.out.println("\t \t5. Tìm kiếm sản phẩm theo khoảng giá");
-            System.out.println("\t \t6. Tìm kiếm sản phẩm theo khuyến mãi");
-            System.out.println("\t \t7. Xóa các khuyến mãi hết hiệu lực khỏi sản phẩm");
-            System.out.println("\t \t8. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
-            System.out.println("\t \t9. Hiển thị thông tin khuyến mãi của sản phẩm chỉ định theo mã sản phẩm");
-            System.out.println("\t \t10. Hiển thị thông tin khuyến mãi của sản phẩm chỉ định theo tên sản phẩm");
-            System.out.println("\t \t11. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
-            System.out.println("\t \t12. Danh sách sản phẩm giảm dần theo số lượng khuyến mãi còn hiệu lực");
-            System.out.println("\t \t13. Hiển thị danh sách sản phẩm");
-            System.out.println("\t \t14. Thoát chương trình!!");
+            System.out.println("\t \t4. Hiển thị danh sách sả3n phẩm");
+            System.out.println("\t \t5. Hiển thị danh sách mã khuyến mãi");
+            System.out.println("\t \t6. Tìm kiếm sản phẩm theo tên");
+            System.out.println("\t \t7. Tìm kiếm sản phẩm theo khoảng giá");
+            System.out.println("\t \t8. Tìm kiếm sản phẩm theo khuyến mãi");
+            System.out.println("\t \t9. Xóa các khuyến mãi hết hiệu lực khỏi sản phẩm");
+            System.out.println("\t \t10. Các khuyến mãi sắp hết hiệu lực theo ngày x bạn nhập");
+            System.out.println("\t \t11. Hiển thị thông tin khuyến mãi của sản phẩm chỉ định theo mã sản phẩm");
+            System.out.println("\t \t12. Hiển thị thông tin khuyến mãi của sản phẩm chỉ định theo tên sản phẩm");
+            System.out.println("\t \t13. Hiển thị danh sách sản phẩm theo khuyến mãi chỉ định");
+            System.out.println("\t \t14. Danh sách sản phẩm giảm dần theo số lượng khuyến mãi còn hiệu lực");
+            System.out.println("\t \t15. Thoát chương trình!!");
             System.out.println("\t \t\t \t\t \t_______________ & _____________");
             System.out.print("Nhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
             switch (choice) {
-
                 case "1" -> {
                     System.out.print("Nhập số sản phẩm: ");
                     int n = Integer.parseInt(Tool.sc.nextLine());
@@ -99,10 +101,11 @@ public class BTL {
                                 dm.addDiscount(crDis);
                                 break;
                         }
-
                     }
                 }
                 case "3" -> {
+                    System.out.println("Các sản phẩm hiện có: ");
+                    pm.getProductsList().forEach(g -> System.out.println(g.getNameProd())); // in ra tên các sp
                     System.out.print("- Nhập tên sản phẩm cần thêm khuyến mãi: ");
                     String nameProd = Tool.sc.nextLine();
                     Product a = pm.searchByName(nameProd);
@@ -126,7 +129,15 @@ public class BTL {
                     // Nếu có thêm khuyến mãi vào sản phẩm
 
                 }
-                case "4" -> {
+                case "4"->{
+                    System.out.println("Danh sách sản phẩm: ");
+                    pm.showProduct();
+                }
+                case "5" -> {
+                    System.out.println("Danh sách các mã khuyến mãi: ");
+                    dm.showDiscounts();
+                }
+                case "6" -> {
                     System.out.print("Nhập tên sản phẩm bạn muốn tìm: ");
                     String nameProd = Tool.sc.nextLine();
                     Product a = pm.searchByName(nameProd);
@@ -138,7 +149,7 @@ public class BTL {
                         a.show();
                     }
                 }
-                case "5" -> {
+                case "7" -> {
                     System.out.print("Nhập khoảng giá sản phẩm bạn muốn tìm: ");
                     System.out.println("\nNhập mức giá tối thiểu: ");
                     double min = Double.parseDouble(Tool.sc.nextLine());
@@ -149,24 +160,25 @@ public class BTL {
                     //Lọc sản phẩm trong khoảng giá tạo Ds in ra màn hình
 
                 }
-                case "6" -> {
+                case "8" -> {
+                    System.out.println("Danh sách các khuyến mãi: ");
                     System.out.println("Nhập mã khuyến mãi: ");
                     String km = Tool.sc.nextLine();
                     am.searchsByNameDis(km).forEach(AddDiscount::show);
                     //Nhập khuyến mãi
                     // in ra các sp có km đó
                 }
-                case "7" -> {
+                case "9" -> {
                     pm.removeDiscountsByOutDate();
                     am.removeDiscountsOutDate();
                     System.out.println("Đã xóa khuyến mãi hết hạn của các sản phẩm!");
                 }
-                case "8" -> {
+                case "10" -> {
                     System.out.print("Nhập ngày bạn cần kiểm tra: ");
                     long num = Long.parseLong(Tool.sc.nextLine());
                     dm.listDiscountByBetweenDate(num).forEach(x-> System.out.println(x));
                 }
-                case "9" -> {
+                case "11" -> {
                     System.out.println("Nhập ID sản phẩm cần tìm kiếm: ");
                     int idprod = Integer.parseInt(Tool.sc.nextLine());
                     if (pm.searchProductbyID(idprod)==null)
@@ -178,7 +190,7 @@ public class BTL {
                             System.out.println("Sản phẩm không có khuyến mãi");
                     };
                 }
-                case "10" -> {
+                case "12" -> {
                     System.out.println("Nhập tên sản phẩm cần tìm kiếm: ");
                     String nameprod = Tool.sc.nextLine();
 
@@ -191,7 +203,7 @@ public class BTL {
                             System.out.println("Sản phẩm không có khuyến mãi");
                     }
                 }
-                case "11" -> {
+                case "13" -> {
                     int a;
                     System.out.println ("Nhập loại khuyến mãi: ");
                     System.out.printf("1:A , 2:B , 3:C: ");
@@ -213,15 +225,13 @@ public class BTL {
                             break;
                     }
                 }
-                case "12" -> {
+                case "14" -> {
                     pm.sortByDiscount();
                     pm.showProduct();
                 }
-                case "13"->{
-                    pm.showProduct();
-                }
-                case "14" -> {
+                case "15" -> {
                     System.out.println("Thoát chương trình !!");
+                    exit(0);
                 }
                 default -> System.out.println("Chức năng chưa có!");
             }
@@ -229,29 +239,4 @@ public class BTL {
     }
 }
 
-//package btlon;
-//
-//class Demo {
-//    public static void main(String[] args) throws Exception {
-//        Discount a = new DiscountA("11/11/2022", "1/12/2022", 0.5);
-//        Discount b = new DiscountA("11/11/2022", "17/12/2022", 0.5);
-//        Discount c = new DiscountA("11/11/2022", "17/12/2022", 0.5);
-//        Discount d = new DiscountA("11/11/2022", "17/12/2022", 0.5);
-//
-//        System.out.println(b.betweenDate());
-//        Product p1 = new Product();
-//        p1.addDiscount(b, a, c);
-//        System.out.println(p1.countDisUpToDate());
-//        System.out.println("==========");
-//        Product p2 = new Product();
-//
-//        p2.addDiscount(b,a,d,c);
-//        System.out.println(p2.countDisUpToDate());
-//        System.out.println("==========");
-//        if (p1.compareProductByDis(p2)==1){
-//            System.out.println("p1 lon");
-//        }else
-//            System.out.println("p2 lon");
-//
-//    }
-//}
+
