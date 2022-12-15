@@ -20,6 +20,9 @@ public class Category {
         this.nameCategory = nameCategory;
     }
 
+    public void addProduct(Product a){
+        this.prodList.add(a);
+    }
     @Override
     public String toString() {
         return String.format(this.nameCategory + "\n" + this.prodList.toString());
