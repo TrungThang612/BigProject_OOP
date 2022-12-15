@@ -41,6 +41,7 @@ public class BTL {
             System.out.print("Nhập lựa chọn của bạn: ");
             String choice = Tool.sc.nextLine();
             switch (choice) {
+
                 case "1" -> {
                     System.out.print("Nhập số sản phẩm: ");
                     int n = Integer.parseInt(Tool.sc.nextLine());
@@ -158,6 +159,7 @@ public class BTL {
                 }
                 case "7" -> {
                     pm.removeDiscountsByOutDate();
+                    am.removeDiscountsOutDate();
                     System.out.println("Đã xóa khuyến mãi hết hạn của các sản phẩm!");
                 }
                 case "8" -> {
@@ -228,7 +230,7 @@ public class BTL {
         }
     }
 }
-//
+
 //package btlon;
 //
 //class Demo {
@@ -240,14 +242,18 @@ public class BTL {
 //
 //        System.out.println(b.betweenDate());
 //        Product p1 = new Product();
-//        p1.input();
 //        p1.addDiscount(b, a, c);
 //        System.out.println(p1.countDisUpToDate());
 //        System.out.println("==========");
 //        Product p2 = new Product();
-//        p2.input();
-//        System.out.println(p1.countDisUpToDate());
+//
+//        p2.addDiscount(b,a,d,c);
+//        System.out.println(p2.countDisUpToDate());
 //        System.out.println("==========");
+//        if (p1.compareProductByDis(p2)==1){
+//            System.out.println("p1 lon");
+//        }else
+//            System.out.println("p2 lon");
 //
 //    }
 //}

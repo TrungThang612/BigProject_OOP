@@ -25,7 +25,7 @@ public class Category {
     }
     @Override
     public String toString() {
-        return String.format(this.nameCategory + "\n" + this.prodList.toString());
+        return String.format(this.nameCategory + "\n");
     }
 
     public String getNameCategory() {
