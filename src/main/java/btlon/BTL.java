@@ -54,6 +54,7 @@ public class BTL {
                             cg.addCategory(cate);
                         }
                         a.setCategory(cate);
+                        cate.addProduct(a);
                         pm.addProd(a);
                     }
                 }
@@ -237,13 +238,13 @@ public class BTL {
 //        System.out.println(b.betweenDate());
 //        Product p1 = new Product();
 //        p1.input();
-//        Product p2 = new Product();
 //        p1.addDiscount(b, a, c);
-//       ProductsManagement pm = new ProductsManagement();
-//       pm.addProd(p1,p2);
-//       pm.showProduct();
-//       pm.removeDiscountsByOutDate();
-//       System.out.println("===============");
-//       pm.showProduct();
+//        System.out.println(p1.countDisUpToDate());
+//        System.out.println("==========");
+//        Product p2 = new Product();
+//        p2.input();
+//        System.out.println(p1.countDisUpToDate());
+//        System.out.println("==========");
+//
 //    }
 //}
