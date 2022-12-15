@@ -14,7 +14,7 @@ import java.util.List;
  * @author dangt
  */
 public class DiscountB  extends Discount {
-    private List<Services> listSV = new ArrayList<>();
+    private List<Service> listSV = new ArrayList<>();
     {
         idDiscount = String.format("B%04d", (int)(Math.random()*(99999-10000+1)+1000));
     }
@@ -33,13 +33,13 @@ public class DiscountB  extends Discount {
         System.out.println("Nhập tên dịch vụ");
         for (int i=0; i<= n; i++){
             String namesv = Tool.sc.nextLine();
-            this.listSV.add(new Services(namesv));
+            this.listSV.add(new Service(namesv));
         }
     }
 
     public DiscountB(){}
 
-    public DiscountB(String idDiscount, String fromDate, String toDate, Services...sv) throws Exception{
+    public DiscountB(String idDiscount, String fromDate, String toDate, Service...sv) throws Exception{
         listSV.addAll(Arrays.asList(sv));
     } 
 
