@@ -10,4 +10,5 @@ public class Tool {
     public static final Locale localeVN = new Locale("vi", "VN");
     public static final NumberFormat vn = NumberFormat.getInstance(localeVN);
     public static final NumberFormat currencyVN = NumberFormat.getCurrencyInstance(localeVN);
+//    public static final Scanner sf = new Scanner(f);
 }
