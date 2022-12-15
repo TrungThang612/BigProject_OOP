@@ -172,8 +172,7 @@ public class BTL {
                             pm.searchProductbyID(idprod).showDc();
                         else
                             System.out.println("Sản phẩm không có khuyến mãi");
-                    }
-//                        pm.searchProductbyID(idprod).showDc();
+                    };
                 }
                 case "10" -> {
                     System.out.println("Nhập tên sản phẩm cần tìm kiếm: ");
@@ -225,3 +224,26 @@ public class BTL {
         }
     }
 }
+//
+//package btlon;
+//
+//class Demo {
+//    public static void main(String[] args) throws Exception {
+//        Discount a = new DiscountA("11/11/2022", "1/12/2022", 0.5);
+//        Discount b = new DiscountA("11/11/2022", "17/12/2022", 0.5);
+//        Discount c = new DiscountA("11/11/2022", "17/12/2022", 0.5);
+//        Discount d = new DiscountA("11/11/2022", "17/12/2022", 0.5);
+//
+//        System.out.println(b.betweenDate());
+//        Product p1 = new Product();
+//        p1.input();
+//        Product p2 = new Product();
+//        p1.addDiscount(b, a, c);
+//       ProductsManagement pm = new ProductsManagement();
+//       pm.addProd(p1,p2);
+//       pm.showProduct();
+//       pm.removeDiscountsByOutDate();
+//       System.out.println("===============");
+//       pm.showProduct();
+//    }
+//}

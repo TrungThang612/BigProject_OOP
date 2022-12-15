@@ -22,7 +22,7 @@ public class Category {
 
     @Override
     public String toString() {
-        return String.format(this.nameCategory);
+        return String.format(this.nameCategory + "\n" + this.prodList.toString());
     }
 
     public String getNameCategory() {

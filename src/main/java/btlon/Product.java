@@ -53,8 +53,10 @@ public class Product {
     }
 
     public void removeDiscountOutDate(){
-        for (Discount x: this.discountList){
-            if (x.isOutDate())  this.discountList.remove(x);
+        for (int i=0; i< this.discountList.size(); i++){
+            if (this.discountList.get(i).isOutDate()){
+                this.discountList.remove(i);
+            }
         }
     }
 

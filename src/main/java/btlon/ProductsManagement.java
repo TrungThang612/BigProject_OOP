@@ -1,6 +1,7 @@
 package btlon;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,8 +27,8 @@ public class ProductsManagement {
     public Product searchProductbyName (String n){
         return this.productsList.stream().filter(Product -> Product.getNameProd().equals(n)).findFirst().orElse(null);
     }
-    public void addProd(Product sp) {
-        this.getProductsList().add(sp);
+    public void addProd(Product... sp) {
+        this.getProductsList().addAll(Arrays.asList(sp));
     }
     public Product searchByName(String nameProd) {
         return this.getProductsList().stream().filter(Products -> Products.getNameProd().equals(nameProd)).findFirst().orElse(null);
@@ -37,8 +38,8 @@ public class ProductsManagement {
         return this.getProductsList().stream().filter(sp -> sp.getUnitPrice() >= min && sp.getUnitPrice() <= max).collect(Collectors.toList());
     }
     public void removeDiscountsByOutDate(){
-        for (Product a : this.productsList){
-            a.removeDiscountOutDate();
+        for (int i=0; i< this.productsList.size(); i++){
+            this.productsList.get(i).removeDiscountOutDate();
         }
     }
 
