@@ -12,11 +12,11 @@ import java.text.ParseException;
  */
 public class DiscountA extends Discount {
     private double percentDiscount ;
-    private static int dem;
+    private static int count;
 
     {
-        ++dem;
-        idDiscount = String.format("A%02d", dem);
+        ++count;
+        idDiscount = String.format("A%02d", count);
     }
 
     @Override
